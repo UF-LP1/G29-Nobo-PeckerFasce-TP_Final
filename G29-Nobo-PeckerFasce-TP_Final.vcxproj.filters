@@ -14,4 +14,83 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cHOSPITAL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cPERSONA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cPACIENTE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cDOSIMETRISTA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cONCOLOGO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFICHA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cTUMOR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cRADIOTERAPIA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cHAZEXTERNO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cBRAQUITERAPIA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cSISTEMICA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eTipoTumor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eTamanioTumor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eTipoSangre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cHOSPITAL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cPERSONA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cPACIENTE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cDOSIMETRISTA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cONCOLOGO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cFICHA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cTUMOR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cRADIOTERAPIA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cHAZEXTERNO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cBRAQUITERAPIA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cSISTEMICA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
