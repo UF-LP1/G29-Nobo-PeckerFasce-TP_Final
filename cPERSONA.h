@@ -1,6 +1,8 @@
 #pragma once
+
 #ifndef _cPERSONA_H
 #define _cPERSONA_H
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -27,7 +29,5 @@ protected:
     const string dni;
     string telefono;
 
-}
+};
 #endif
-
-
