@@ -1,5 +1,7 @@
 #pragma once
 
+#include "eRadioterapia.h"
+
 #ifndef _eTamanioTumor_H
 #define _eTamanioTumor_H
 
