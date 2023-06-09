@@ -24,8 +24,8 @@ public:
     string get_telefono();
     string get_nombre();
     string get_dni();
-    virtual string to_string();
-    void imprimir();
+    virtual string to_string()=0;
+    void imprimir();//SOBRECARGA
 
 protected:
     const string nombre;
