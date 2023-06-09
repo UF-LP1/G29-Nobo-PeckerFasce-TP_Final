@@ -1,7 +1,9 @@
+#pragma once
+
 #ifndef _cHOSPITAL_H
 #define _cHOSPITAL_H
-#include cPACIENTE
-#pragma once
+#include "cPACIENTE.h"
+
 class cHOSPITAL
 {
 private:
@@ -19,4 +21,6 @@ public:
 	string to_string();
 	void imprimir();
 };
+
+#endif
 

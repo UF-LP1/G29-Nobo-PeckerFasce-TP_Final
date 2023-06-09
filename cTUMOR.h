@@ -4,7 +4,6 @@
 #ifndef _cTUMOR_H
 #define _cTUMOR_H
 
-
 class cTUMOR
 {
 public:
