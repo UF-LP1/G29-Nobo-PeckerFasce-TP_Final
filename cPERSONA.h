@@ -7,6 +7,9 @@
 #include <string>
 #include <vector>
 #include <list>
+
+#include "TipoTumor.h"
+
 using namespace std;
 
 class cPERSONA

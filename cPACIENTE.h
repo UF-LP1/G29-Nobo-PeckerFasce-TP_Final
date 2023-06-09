@@ -1,7 +1,7 @@
 #pragma once
-#include "cPERSONA.h"
-#include "eTipoSangre.h"
 
+#include "eTipoSangre.h"
+#include "cFICHA.h"
 #ifndef _cPACIENTE_H
 #define _cPACIENTE_H
 
