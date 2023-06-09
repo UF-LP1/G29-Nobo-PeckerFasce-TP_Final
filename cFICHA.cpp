@@ -23,10 +23,7 @@ void cFICHA::set_dosisMax(unsigned int dosisMax) {
 	return;
 }
 
-void cFICHA::set_porcentajeTratado(float porcentajeTratado) {
-	this->porcentajeTratado = porcentajeTratado;
-	return;
-}
+
 
 void cFICHA::set_fechaProxSesion(time_t fechaProxSesion) {
 	this->fechaProxSesion = fechaProxSesion;
@@ -51,9 +48,6 @@ unsigned int cFICHA::get_dosisMax() {
 	return this->dosisMax;
 }
 
-float cFICHA::get_porcentajeTratado() {
-	return this->porcentajeTratado;
-}
 
 unsigned int cFICHA::get_frecuenciaSemanal() {
 	return this->frecuenciaSemanal;
@@ -68,8 +62,23 @@ time_t cFICHA::get_fechaProxSesion() {
 }
 
 string cFICHA::to_string() {
-
+	stringstream ss, ssaux;
+	if (this->dosisMax != 0)
+	{
+		float porcentaje = this->dosisAcumTotal * 100 / this->dosisMax;
+		for (int i = 0; i < this->tumores.size();i++) {
+			string aux= this->tumores[i].to_string();
+			ssaux << "Tumor " << i + 1 << ": " << aux;
+		}
+		ss << "La dosis maxima es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. La ultima sesion fue el dia " << ctime(&(this->fechaUltimaSesion)) << ". La proxima sesion sera el dia " << ctime(&(this->fechaProxSesion)) << "." << ssaux;
+	}
+//AGREGAR EX --> tratamiento no comenzado
+	return ss.str();
 }
+
+
+
+	//vector < cTUMOR > tumores;*/
 
 void cFICHA::imprimir() {
 
