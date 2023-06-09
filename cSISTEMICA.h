@@ -7,6 +7,13 @@
 class cSISTEMICA :
     public cRADIOTERAPIA
 {
+public:
+    static unsigned int dosisMax;
+
+    cSISTEMICA();
+    ~cSISTEMICA();
+    unsigned int ajustar_dosis();
+    string to_string();
 };
 
 #endif

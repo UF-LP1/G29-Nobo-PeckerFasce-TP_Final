@@ -7,6 +7,13 @@
 class cBRAQUITERAPIA :
     public cRADIOTERAPIA
 {
+public:
+    static unsigned int dosisMax;
+
+    cBRAQUITERAPIA();
+    ~cBRAQUITERAPIA();
+    unsigned int ajustar_dosis();
+    string to_string();
 };
 
 #endif

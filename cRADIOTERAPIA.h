@@ -4,6 +4,7 @@
 #define _cRADIOTERAPIA_H
 
 #include "eTipoTumor.h"
+#include "cTUMOR.h"
 
 class cRADIOTERAPIA
 {
