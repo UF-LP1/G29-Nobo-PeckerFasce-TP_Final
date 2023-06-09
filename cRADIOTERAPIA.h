@@ -8,7 +8,7 @@
 
 class cRADIOTERAPIA
 {
-private:
+protected:
 	unsigned int dosisPorSesion;
 	unsigned int frecuenciaSemanalPorTumor;
 
@@ -18,6 +18,10 @@ public:
 	cRADIOTERAPIA(eRadioterapia tratamiento);
 	~cRADIOTERAPIA();
 
+	void set_dosisPorSesion(unsigned int dosisPorSesion);
+	void set_frecuenciaSemanalPorTumor(unsigned int frecuenciaSemanalPorTumor);
+	unsigned int get_dosisPorSesion();
+	unsigned int get_frecuenciaSemanalPorTumor();
 	string to_string();
 	void imprimir();
 
