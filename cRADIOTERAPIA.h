@@ -5,6 +5,7 @@
 
 #include "eTipoTumor.h"
 #include "cTUMOR.h"
+#include <sstream>
 
 class cRADIOTERAPIA
 {

@@ -1,11 +1,8 @@
 #include "cPERSONA.h"
 
-cPERSONA::cPERSONA(string nombre, string dni)
+cPERSONA::cPERSONA(string nombre, string dni): nombre(nombre), dni(dni)
 {
-	this->nombre = nombre;
-	this->dni = dni;
-	this->telefono = 0;
-
+	this->telefono = "";
 }
 
 cPERSONA::~cPERSONA()
