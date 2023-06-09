@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <list>
+#include "eTipoSangre.h"
 using namespace std;
 
 class cPERSONA
