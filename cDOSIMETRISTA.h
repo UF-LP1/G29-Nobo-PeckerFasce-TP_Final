@@ -14,6 +14,7 @@ public:
     ~cDOSIMETRISTA();
 
     void generar_dosis(cFICHA ficha);
+    string to_string();
 };
 
 #endif

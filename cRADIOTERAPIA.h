@@ -23,7 +23,7 @@ public:
 	void set_frecuenciaSemanalPorTumor(unsigned int frecuenciaSemanalPorTumor);
 	unsigned int get_dosisPorSesion();
 	unsigned int get_frecuenciaSemanalPorTumor();
-	string to_string();
+	virtual string to_string()=0;
 	void imprimir();
 
 };
