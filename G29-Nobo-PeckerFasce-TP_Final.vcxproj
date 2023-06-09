@@ -138,6 +138,7 @@
     <ClInclude Include="cRADIOTERAPIA.h" />
     <ClInclude Include="cSISTEMICA.h" />
     <ClInclude Include="cTUMOR.h" />
+    <ClInclude Include="eRadioterapia.h" />
     <ClInclude Include="eTamanioTumor.h" />
     <ClInclude Include="eTipoSangre.h" />
     <ClInclude Include="eTipoTumor.h" />

@@ -15,7 +15,7 @@ private:
 public:
 	const eRadioterapia tratamiento;
 
-	cRADIOTERAPIA(eRdioterapia tratamiento);
+	cRADIOTERAPIA(eRadioterapia tratamiento);
 	~cRADIOTERAPIA();
 
 	string to_string();
