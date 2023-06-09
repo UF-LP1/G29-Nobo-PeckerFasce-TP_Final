@@ -15,3 +15,5 @@ public:
     void atender_paciente(cPACIENTE paciente);
 };
 
+#endif
+

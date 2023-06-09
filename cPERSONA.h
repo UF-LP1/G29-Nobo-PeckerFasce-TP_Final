@@ -8,7 +8,7 @@
 #include <vector>
 #include <list>
 
-#include "TipoTumor.h"
+#include "eTipoTumor.h"
 
 using namespace std;
 
