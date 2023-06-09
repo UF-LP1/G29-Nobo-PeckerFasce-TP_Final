@@ -1,5 +1,5 @@
 #pragma once
-#include "cPERSONA.h"
+#include "cONCOLOGO.h"
 
 #ifndef _cTUMOR_H
 #define _cTUMOR_H
