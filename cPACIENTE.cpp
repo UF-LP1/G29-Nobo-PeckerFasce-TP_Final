@@ -14,7 +14,7 @@ void cPACIENTE::set_enEspera(bool enEspera)
 	return;
 }
 
-void cPACIENTE::set_salud(unsigned int salud)
+void cPACIENTE::set_salud(float salud)
 {
 	this->salud = salud;
 }
@@ -23,7 +23,7 @@ eTipoSangre cPACIENTE::get_tipoSangre()
 	return this->tipoSangre;
 }
 
-unsigned int cPACIENTE::get_salud()
+float cPACIENTE::get_salud()
 {
 	return this->salud;
 }

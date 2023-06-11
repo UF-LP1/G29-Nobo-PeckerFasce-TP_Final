@@ -15,9 +15,9 @@ public:
     ~cPACIENTE();
 
     void set_enEspera(bool enEspera);
-    void set_salud(unsigned int salud);
+    void set_salud(float salud);
     eTipoSangre get_tipoSangre();
-    unsigned int get_salud();
+    float get_salud();
     char get_sexo();
     bool get_enEspera();
     string to_string();
@@ -27,9 +27,9 @@ private:
 
     const eTipoSangre tipoSangre;
     const char sexo;
-    unsigned int salud;
+    float salud;
     bool enEspera;
-
+    cFICHA ficha;
 };
 
 #endif
