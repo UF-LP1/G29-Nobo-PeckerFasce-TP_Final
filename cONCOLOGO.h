@@ -14,7 +14,8 @@ public:
 
     void pasar_lista_espera(cPACIENTE paciente);
     void atender_paciente(cPACIENTE paciente);
-    cFICHA generar_ficha_nueva(cPACIENTE paciente;)
+    cFICHA generar_ficha_nueva(cPACIENTE paciente);
+    void generar_diagnostico(cPACIENTE* paciente);
     string to_string();
 };
 
