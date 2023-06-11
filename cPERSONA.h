@@ -10,6 +10,9 @@
 #include <sstream>
 
 #include "eTipoTumor.h"
+#include "cBRAQUITERAPIA.h"
+#include "cHAZEXTERNO.h"
+#include "cSISTEMICA.h"
 
 using namespace std;
 

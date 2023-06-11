@@ -1,5 +1,4 @@
 #include "cDOSIMETRISTA.h"
-#include <ctime>
 
 cDOSIMETRISTA::cDOSIMETRISTA(string nombre, string dni):cPERSONA(nombre,dni) {
 	
@@ -11,10 +10,19 @@ cDOSIMETRISTA::~cDOSIMETRISTA() {
 }
 
 void cDOSIMETRISTA::generar_dosis(cPACIENTE paciente) {
-	srand(time(NULL));
 
-	for (int i = 0; i < ; i++)
+
+	for (int i = 0; i < paciente.get_ficha().get_tumores().size();i++)
 	{
+		unsigned int dosis;
+	//dynamic_cast del puntero de radioterapia 
+		if (dynamic_cast<cBRAQUITERAPIA*>(paciente.get_ficha().get_tumores()[i].get_tratamiento()) != nullptr)
+		{
+			dosis= paciente.get_ficha().get_tumores()[i].get_tratamiento()->ajustar_dosis()
+		}
+			
+			
+
 
 	}
 
