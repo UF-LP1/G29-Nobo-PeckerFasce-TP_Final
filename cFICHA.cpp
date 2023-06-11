@@ -38,7 +38,9 @@ void cFICHA::set_frecuenciaSemanal(unsigned int frecuenciaSemanal) {
 	this->frecuenciaSemanal = frecuenciaSemanal;
 	return;
 }
-
+void cFICHA::set_tumores(vector<cTUMOR> tumores) {
+	this->tumores = tumores;
+}
 unsigned int cFICHA::get_dosisAcumTotal() {
 	return this->dosisAcumTotal;
 }
@@ -54,6 +56,9 @@ unsigned int cFICHA::get_frecuenciaSemanal() {
 
 time_t cFICHA::get_fechaUltimaSesion() {
 	return this->fechaUltimaSesion;
+}
+vector <cTUMOR> cFICHA::get_tumores() {
+	return this->tumores;
 }
 
 time_t cFICHA::get_fechaProxSesion() {
