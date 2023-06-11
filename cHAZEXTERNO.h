@@ -12,7 +12,7 @@ public:
 
     cHAZEXTERNO();
     ~cHAZEXTERNO();
-    unsigned int ajustar_dosis();
+    unsigned int ajustar_dosis(eTamanioTumor tamanio);
     string to_string();
 };
 

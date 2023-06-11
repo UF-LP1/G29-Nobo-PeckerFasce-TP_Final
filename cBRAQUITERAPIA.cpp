@@ -9,7 +9,7 @@ cBRAQUITERAPIA::~cBRAQUITERAPIA() {
 
 }
 
-unsigned int cBRAQUITERAPIA::ajustar_dosis() {
+unsigned int cBRAQUITERAPIA::ajustar_dosis(eTamanioTumor tamanio) {
 
 }
 

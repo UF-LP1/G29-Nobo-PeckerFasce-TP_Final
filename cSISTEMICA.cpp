@@ -8,7 +8,7 @@ cSISTEMICA::~cSISTEMICA() {
 
 }
 
-unsigned int cSISTEMICA::ajustar_dosis() {
+unsigned int cSISTEMICA::ajustar_dosis(eTamanioTumor tamanio) {
 
 }
 
