@@ -9,7 +9,23 @@ cSISTEMICA::~cSISTEMICA() {
 }
 
 unsigned int cSISTEMICA::ajustar_dosis(eTamanioTumor tamanio) {
-
+	srand(time(NULL));
+	unsigned int dosis = rand() % 8; //da un nro del 0 al 7
+	switch (tamanio) {
+	case pequenio: {
+		dosis = dosis + 20;
+		break;
+	}
+	case mediano: {
+		dosis = dosis + 26;
+		break;
+	}
+	case grande: {
+		dosis = dosis + 33;
+		break;
+	}
+	}
+	return dosis;
 }
 
 string cSISTEMICA::to_string() {

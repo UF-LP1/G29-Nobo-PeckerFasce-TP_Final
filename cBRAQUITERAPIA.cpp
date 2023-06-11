@@ -10,7 +10,23 @@ cBRAQUITERAPIA::~cBRAQUITERAPIA() {
 }
 
 unsigned int cBRAQUITERAPIA::ajustar_dosis(eTamanioTumor tamanio) {
-
+	srand(time(NULL));
+	unsigned int dosis = rand() % 21; //da un nro del 0 al 20
+	switch (tamanio) {
+	case pequenio: {
+		dosis = dosis + 100;
+		break;
+	}
+	case mediano: {
+		dosis = dosis + 120;
+		break;
+	}
+	case grande: {
+		dosis = dosis + 140;
+		break;
+	}
+	}
+	return dosis;
 }
 
 string cBRAQUITERAPIA::to_string() {
