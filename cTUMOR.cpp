@@ -22,6 +22,12 @@ void cTUMOR::set_dosisAcumTumor(unsigned int dosisAcumTumor) {
 	this->dosisAcumTumor = dosisAcumTumor;
 	return;
 }
+void cTUMOR::set_tratamiento(cRADIOTERAPIA* tratamiento) {
+	this->tratamiento = tratamiento;
+}
+cRADIOTERAPIA* cTUMOR::get_tratamiento() {
+	return this->tratamiento;
+}
 
 eTamanioTumor cTUMOR::get_tamanio() {
 	return this->tamanio;
