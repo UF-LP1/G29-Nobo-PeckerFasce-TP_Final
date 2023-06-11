@@ -1,5 +1,6 @@
 #pragma once
 #include "cONCOLOGO.h"
+#include "cTUMOR.h"
 #ifndef _cFICHA_H
 #define _FICHA_H
 
