@@ -1,6 +1,6 @@
 #include "cTUMOR.h"
 
-
+//this->carrito = vector<PRODUCTO*>(carrito.begin(), carrito.end());
 
 cTUMOR::cTUMOR(eTipoTumor tipo):tipo(tipo)
 {

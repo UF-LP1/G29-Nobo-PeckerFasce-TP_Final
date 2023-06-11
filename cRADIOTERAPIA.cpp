@@ -27,10 +27,6 @@ unsigned int cRADIOTERAPIA::get_frecuenciaSemanalPorTumor() {
 	return this->frecuenciaSemanalPorTumor;
 }
 
-string cRADIOTERAPIA::to_string() {
-
-}
-
 void cRADIOTERAPIA::imprimir() {
 
 }
