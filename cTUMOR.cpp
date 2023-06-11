@@ -33,7 +33,7 @@ unsigned int cTUMOR::get_dosisAcumTumor() {
 
 string cTUMOR::to_string() {
 	stringstream ss;
-	ss << "Tumor de " << this->tipo << ", de tamanio " << this->tamanio << ". Dosis acumulada hasta ahora " << this->dosisAcumTumor;
+	ss << "Tumor de " << this->tipo << ", de tamanio " << this->tamanio << ". Dosis acumuladas hasta ahora: " << this->dosisAcumTumor;
 	return ss.str();
 
 }
