@@ -13,6 +13,8 @@ public:
 	void imprimir();
 	void set_tamanio(eTamanioTumor tamanio);
 	void set_dosisAcumTumor(unsigned int dosisAcumTumor);
+	void set_tratamiento(cRADIOTERAPIA*tratamiento);
+	cRADIOTERAPIA* get_tratamiento();
 	eTamanioTumor get_tamanio();
 	unsigned int get_dosisAcumTumor();
 
@@ -21,7 +23,7 @@ public:
 private:
 	eTamanioTumor tamanio;
 	unsigned int dosisAcumTumor;
-
+	cRADIOTERAPIA* tratamiento;
 };
 
 #endif
