@@ -6,7 +6,6 @@ cFICHA::cFICHA() {
 	this->fechaProxSesion = 0;
 	this->fechaUltimaSesion = 0;
 	this->frecuenciaSemanal = 0;
-	this->porcentajeTratado = 0;
 }
 
 cFICHA::~cFICHA() {
@@ -75,9 +74,6 @@ string cFICHA::to_string() {
 //AGREGAR EX --> tratamiento no comenzado
 	return ss.str();
 }
-
-
-
 	//vector < cTUMOR > tumores;*/
 
 void cFICHA::imprimir() {
