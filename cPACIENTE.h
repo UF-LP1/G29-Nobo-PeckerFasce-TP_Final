@@ -16,10 +16,12 @@ public:
 
     void set_enEspera(bool enEspera);
     void set_salud(float salud);
+    void set_ficha(cFICHA ficha)
     eTipoSangre get_tipoSangre();
     float get_salud();
     char get_sexo();
     bool get_enEspera();
+    cFICHA get_ficha();
     string to_string();
 
 
