@@ -5,6 +5,7 @@
 cTUMOR::cTUMOR(eTipoTumor tipo):tipo(tipo)
 {
 	this->dosisAcumTumor = 0;
+	this->dosisMaxTumor = 0;
 	this->tamanio = eTamanioTumor (0);//por defecto pero despues hago set
 }
 
@@ -24,6 +25,12 @@ void cTUMOR::set_dosisAcumTumor(unsigned int dosisAcumTumor) {
 }
 void cTUMOR::set_tratamiento(cRADIOTERAPIA* tratamiento) {
 	this->tratamiento = tratamiento;
+}
+void cTUMOR::set_dosisMaxTumor(unsigned int dosis) {
+	this->dosisMaxTumor = dosis;
+}
+unsigned int get_dosisMaxTumor() {
+	return this->dosisMaxTumor;
 }
 cRADIOTERAPIA* cTUMOR::get_tratamiento() {
 	return this->tratamiento;

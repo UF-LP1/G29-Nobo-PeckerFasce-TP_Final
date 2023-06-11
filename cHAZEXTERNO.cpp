@@ -8,7 +8,7 @@ cHAZEXTERNO::~cHAZEXTERNO() {
 
 }
 
-unsigned int cHAZEXTERNO::ajustar_dosis() {
+unsigned int cHAZEXTERNO::ajustar_dosis(eTamanioTumor tamanio) {
 
 }
 
