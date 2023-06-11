@@ -21,7 +21,9 @@ void cHOSPITAL::imprimirListado() {
 }
 
 string cHOSPITAL::to_string() {
-
+	stringstream ss;
+	ss << "El hospital " << this->nombre << ", ubicado en " << this->direccion << " cuenta actualmente con " << this->pacientes.size() << " pacientes.";
+	return ss.str();
 }
 
 void cHOSPITAL::imprimir() {
