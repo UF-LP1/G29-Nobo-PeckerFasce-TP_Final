@@ -1,7 +1,7 @@
 #include "cHOSPITAL.h"
 
 cHOSPITAL::cHOSPITAL(string nombre, string direccion):nombre(nombre), direccion(direccion) {
-
+	this->pacientes = vector<cPACIENTE>(pacientes.begin(), pacientes.end());
 }
 
 cHOSPITAL::~cHOSPITAL() {
