@@ -1,8 +1,7 @@
 #include "cTUMOR.h"
 
-cTUMOR::cTUMOR(eTipoTumor tipo)
+cTUMOR::cTUMOR(eTipoTumor tipo):tipo(tipo)
 {
-	this->tipo = tipo;
 	this->dosisAcumTumor = 0;
 	this->tamanio = eTamanioTumor (0);//por defecto pero despues hago set
 }
