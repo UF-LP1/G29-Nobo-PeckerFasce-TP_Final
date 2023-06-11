@@ -9,7 +9,29 @@ cHAZEXTERNO::~cHAZEXTERNO() {
 }
 
 unsigned int cHAZEXTERNO::ajustar_dosis(eTamanioTumor tamanio) {
+	srand(time(NULL));
+	unsigned int dosis = rand() % 4; //da un nro entre 0 y 3
+	switch (tamanio)
+	{
+	case pequenio:
+	{
+		dosis = dosis + 1;
+		break;
+	}
+	case mediano:
+	{
+		dosis = dosis + 4;
+		break;
+	}
+	case grande:
+	{
+		dosis = dosis + 7;
+		break;
+	}
 
+	}
+	
+	return dosis;
 }
 
 string cHAZEXTERNO::to_string() {
