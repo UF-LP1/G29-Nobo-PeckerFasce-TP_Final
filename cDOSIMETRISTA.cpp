@@ -18,7 +18,8 @@ void cDOSIMETRISTA::generar_dosis(cPACIENTE paciente) {
 	//dynamic_cast del puntero de radioterapia 
 		if (dynamic_cast<cBRAQUITERAPIA*>(paciente.get_ficha().get_tumores()[i].get_tratamiento()) != nullptr)
 		{
-			dosis= paciente.get_ficha().get_tumores()[i].get_tratamiento()->ajustar_dosis()
+			//dynamic_cast<Cuadrado*>(aux)->imprimir();
+			dosis=dynamic_cast<cBRAQUITERAPIA*>(paciente.get_ficha().get_tumores()[i].get_tratamiento())->ajustar_dosis(paciente.get_ficha().get_tumores()[i].get_tamanio());
 		}
 			
 			

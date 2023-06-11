@@ -29,7 +29,7 @@ void cTUMOR::set_tratamiento(cRADIOTERAPIA* tratamiento) {
 void cTUMOR::set_dosisMaxTumor(unsigned int dosis) {
 	this->dosisMaxTumor = dosis;
 }
-unsigned int get_dosisMaxTumor() {
+unsigned int cTUMOR::get_dosisMaxTumor() {
 	return this->dosisMaxTumor;
 }
 cRADIOTERAPIA* cTUMOR::get_tratamiento() {

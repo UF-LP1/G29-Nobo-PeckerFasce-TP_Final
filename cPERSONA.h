@@ -8,6 +8,7 @@
 #include <vector>
 #include <list>
 #include <sstream>
+#include <ctime>
 
 #include "eTipoTumor.h"
 #include "cBRAQUITERAPIA.h"
