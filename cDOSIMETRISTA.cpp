@@ -9,7 +9,8 @@ cDOSIMETRISTA::~cDOSIMETRISTA() {
 
 }
 
-void cDOSIMETRISTA::generar_dosis(cFICHA ficha) {
+void cDOSIMETRISTA::generar_dosis(cPACIENTE paciente) {
+
 
 }
 

@@ -13,7 +13,7 @@ public:
     cDOSIMETRISTA(string nombre, string dni);
     ~cDOSIMETRISTA();
 
-    void generar_dosis(cFICHA ficha);
+    void generar_dosis(cPACIENTE paciente);
     string to_string();
 };
 
