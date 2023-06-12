@@ -4,6 +4,7 @@
 #define _cONCOLOGO_H
 
 #include "cPACIENTE.h"
+#include "cDOSIMETRISTA.h"
 
 class cONCOLOGO :
     public cPERSONA
@@ -14,7 +15,7 @@ public:
 
     void pasar_lista_espera(cPACIENTE paciente);
     void atender_paciente(cPACIENTE paciente);
-    cFICHA generar_ficha_nueva(cPACIENTE paciente);
+    void generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista);
     void generar_diagnostico(cPACIENTE* paciente);
     string to_string();
 };

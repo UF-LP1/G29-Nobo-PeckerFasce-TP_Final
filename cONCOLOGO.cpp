@@ -16,9 +16,19 @@ void cONCOLOGO::atender_paciente(cPACIENTE paciente) {
 
 }
 
-cFICHA cONCOLOGO::generar_ficha_nueva(cPACIENTE paciente) {
+void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista) {
 	unsigned int dosisMaxPaciente;
-	//////
+	cFICHA fichaaux;
+	//me invento tumores
+	generar_diagnostico(&paciente);
+	//me invento tratamientos 
+	
+	//pido que me inventen dosis para los tratamientos
+	dosimetrista.generar_dosis(&paciente);
+	
+	
+
+	return;
 }
 
 void cONCOLOGO::generar_diagnostico(cPACIENTE* paciente) {
@@ -38,8 +48,9 @@ void cONCOLOGO::generar_diagnostico(cPACIENTE* paciente) {
 		tumores.push_back(aux);
 		tumores[j].set_tamanio(eTamanioTumor(rand() % 3));
 	}
-
-	paciente->get_ficha().set_tumores(tumores);
+	cFICHA fichaaux = paciente->get_ficha();
+	fichaaux.set_tumores(tumores);
+	paciente->set_ficha(fichaaux);
 	return;
 }
 
