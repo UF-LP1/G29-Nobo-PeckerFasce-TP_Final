@@ -142,6 +142,7 @@
     <ClInclude Include="eTamanioTumor.h" />
     <ClInclude Include="eTipoSangre.h" />
     <ClInclude Include="eTipoTumor.h" />
+    <ClInclude Include="excepciones.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cBRAQUITERAPIA.cpp" />

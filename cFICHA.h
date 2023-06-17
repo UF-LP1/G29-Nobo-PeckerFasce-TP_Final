@@ -1,6 +1,7 @@
 #pragma once
 #include "cONCOLOGO.h"
 #include "cTUMOR.h"
+#include "excepciones.h"
 #ifndef _cFICHA_H
 #define _FICHA_H
 
@@ -24,7 +25,7 @@ public:
 	time_t get_fechaProxSesion();
 	vector <cTUMOR> get_tumores();
 	string to_string();
-	void imprimir();
+	friend ostream& operator<<(ostream& out, cFICHA& ficha);
 
 private:
 
