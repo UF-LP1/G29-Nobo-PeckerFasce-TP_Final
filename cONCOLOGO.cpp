@@ -20,14 +20,12 @@ void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetri
 	unsigned int dosisMaxPaciente;
 	cFICHA fichaaux;
 	//me invento tumores
-	generar_diagnostico(&paciente);
+	generar_diagnostico(paciente);
 	//me invento tratamientos 
 	
 	//pido que me inventen dosis para los tratamientos
-	dosimetrista.generar_dosis(&paciente);
+	dosimetrista.generar_dosis(paciente);
 	
-	
-
 	return;
 }
 

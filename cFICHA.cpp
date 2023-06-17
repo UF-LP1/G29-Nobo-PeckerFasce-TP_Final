@@ -22,8 +22,6 @@ void cFICHA::set_dosisMax(unsigned int dosisMax) {
 	return;
 }
 
-
-
 void cFICHA::set_fechaProxSesion(time_t fechaProxSesion) {
 	this->fechaProxSesion = fechaProxSesion;
 	return;
@@ -57,6 +55,7 @@ unsigned int cFICHA::get_frecuenciaSemanal() {
 time_t cFICHA::get_fechaUltimaSesion() {
 	return this->fechaUltimaSesion;
 }
+
 vector <cTUMOR> cFICHA::get_tumores() {
 	return this->tumores;
 }

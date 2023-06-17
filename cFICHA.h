@@ -2,6 +2,7 @@
 #include "cONCOLOGO.h"
 #include "cTUMOR.h"
 #include "excepciones.h"
+#include <vector>
 #ifndef _cFICHA_H
 #define _FICHA_H
 

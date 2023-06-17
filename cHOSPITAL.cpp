@@ -26,6 +26,8 @@ string cHOSPITAL::to_string() {
 	return ss.str();
 }
 
-void cHOSPITAL::imprimir() {
-
+ostream& operator<<(ostream& out, cHOSPITAL& hospital)
+{
+	out << hospital.to_string();
+	return out;
 }

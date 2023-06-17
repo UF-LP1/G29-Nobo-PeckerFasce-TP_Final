@@ -19,7 +19,7 @@ public:
 	list <cPACIENTE> buscar_por_menos_del_5porciento();
 	void imprimirListado();
 	string to_string();
-	void imprimir();
+	friend ostream& operator<<(ostream& out, cHOSPITAL& hospital);
 };
 
 #endif
