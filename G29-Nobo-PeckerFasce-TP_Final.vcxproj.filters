@@ -60,6 +60,9 @@
     <ClInclude Include="eRadioterapia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="excepciones.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cHOSPITAL.cpp">

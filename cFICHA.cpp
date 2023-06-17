@@ -67,20 +67,29 @@ time_t cFICHA::get_fechaProxSesion() {
 
 string cFICHA::to_string() {
 	stringstream ss, ssaux;
+
+	try {
+		if (this->dosisAcumTotal == 0)
+			throw exTratamientoNoComenzado();
+	}
+	catch (exTratamientoNoComenzado& error){
+		ss << error.what();
+		return ss.str();
+	}
+
 	if (this->dosisMax != 0)
 	{
-		float porcentaje = this->dosisAcumTotal * 100 / this->dosisMax;
+		float porcentaje = (float)(this->dosisAcumTotal * 100 / this->dosisMax);
 		for (int i = 0; i < this->tumores.size();i++) {
 			string aux= this->tumores[i].to_string();
 			ssaux << "Tumor " << i + 1 << ": " << aux;
 		}
-		ss << "La dosis maxima es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. La ultima sesion fue el dia " << ctime(&(this->fechaUltimaSesion)) << ". La proxima sesion sera el dia " << ctime(&(this->fechaProxSesion)) << "." << ssaux;
+		ss << "La dosis maxima es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. La ultima sesion fue el dia " << ctime(&(this->fechaUltimaSesion)) << ". La proxima sesion sera el dia " << ctime(&(this->fechaProxSesion)) << "." << ssaux.str();
 	}
-//AGREGAR EX --> tratamiento no comenzado
 	return ss.str();
 }
-	//vector < cTUMOR > tumores;*/
 
-void cFICHA::imprimir() {
-
+ostream& operator<<(ostream& out, cFICHA& ficha) {
+	out << ficha.to_string();
+	return out;
 }

@@ -15,8 +15,8 @@ public:
 	cHOSPITAL(string nombre, string direccion);
 	~cHOSPITAL();
 
-	vector <cPACIENTE> buscar_por_tratamiento_y_tumor(eRadioterapia tratamiento, eTipoTumor tumor);
-	vector <cPACIENTE> buscar_por_menos_del_5porciento();
+	list <cPACIENTE> buscar_por_tratamiento_y_tumor(eRadioterapia tratamiento, eTipoTumor tumor);
+	list <cPACIENTE> buscar_por_menos_del_5porciento();
 	void imprimirListado();
 	string to_string();
 	void imprimir();
