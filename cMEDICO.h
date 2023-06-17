@@ -17,13 +17,13 @@
 
 using namespace std;
 
-class cPERSONA
+class cMEDICO
 {
 
 public:
 
-    cPERSONA(string nombre, string dni);
-    ~cPERSONA();
+    cMEDICO(string nombre, string dni);
+    ~cMEDICO();
 
     void set_telefono(string telefono);
     string get_telefono();

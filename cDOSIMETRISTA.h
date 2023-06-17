@@ -1,12 +1,12 @@
 #pragma once
-#include "cPERSONA.h"
+#include "cMEDICO.h"
 #include "cFICHA.h"
 
 #ifndef _cDOSIMETRISTA_H
 #define _cDOSIMETRISTA_H
 
 class cDOSIMETRISTA :
-    public cPERSONA
+    public cMEDICO
 {
 public:
 

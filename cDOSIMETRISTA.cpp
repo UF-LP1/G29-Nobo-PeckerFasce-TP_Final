@@ -1,6 +1,6 @@
 #include "cDOSIMETRISTA.h"
 
-cDOSIMETRISTA::cDOSIMETRISTA(string nombre, string dni):cPERSONA(nombre,dni) {
+cDOSIMETRISTA::cDOSIMETRISTA(string nombre, string dni):cMEDICO(nombre,dni) {
 	
 }
 

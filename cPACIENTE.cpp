@@ -1,6 +1,6 @@
 #include "cPACIENTE.h"
 
-cPACIENTE::cPACIENTE(string nombre, string dni, eTipoSangre tipoSangre, char sexo) :cPERSONA(nombre, dni), sexo(sexo), tipoSangre(tipoSangre) {
+cPACIENTE::cPACIENTE(string nombre, string dni, eTipoSangre tipoSangre, char sexo) : sexo(sexo), tipoSangre(tipoSangre) {
 	this->enEspera = false;
 }
 
@@ -42,6 +42,26 @@ bool cPACIENTE::get_enEspera()
 	return this->enEspera;
 }
 
+void cPACIENTE::set_telefono(string telefono)
+{
+	this->telefono = telefono;
+}
+
+string cPACIENTE::get_telefono()
+{
+	return this->telefono;
+}
+
+string cPACIENTE::get_nombre()
+{
+	return this->nombre;
+}
+
+string cPACIENTE::get_dni()
+{
+	return this->dni;
+}
+
 string cPACIENTE::to_string() {
 	stringstream ss;
 	string auxsexo, auxenespera;
@@ -60,4 +80,9 @@ string cPACIENTE::to_string() {
 
 	ss << "El paciente " << this->nombre <<"("<<auxsexo<<"), tipo de sangre: "<<this->tipoSangre<<", con DNI : " << this->dni << " y telefono : " << this->telefono << ", actualmente se encuentra en " << auxenespera<<". Su estado de salud actual (0-1) es: "<<this->salud;
 	return ss.str();
+}
+
+ ostream& operator<<(ostream& out; cPACIENTE& paciente) {
+	 out << paciente.to_string;
+	 return out;
 }

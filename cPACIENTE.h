@@ -2,12 +2,11 @@
 
 #include "eTipoSangre.h"
 #include "cFICHA.h"
-#include "cPERSONA.h"
 #ifndef _cPACIENTE_H
 #define _cPACIENTE_H
 
 class cPACIENTE :
-    public cPERSONA
+    
 {
 public:
 
@@ -26,6 +25,17 @@ public:
 
 
 private:
+
+    const string nombre;
+    const string dni;
+    string telefono;
+    
+    void set_telefono(string telefono);
+    string get_telefono();
+    string get_nombre();
+    string get_dni();
+     string to_string();
+     friend ostream& operator<<(ostream& out; cPACIENTE& paciente);
 
     const eTipoSangre tipoSangre;
     const char sexo;

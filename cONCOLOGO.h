@@ -7,7 +7,7 @@
 #include "cDOSIMETRISTA.h"
 
 class cONCOLOGO :
-    public cPERSONA
+    public cMEDICO
 {
 public:
     cONCOLOGO(string nombre, string dni);
@@ -17,6 +17,7 @@ public:
     void atender_paciente(cPACIENTE paciente);
     void generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista);
     void generar_diagnostico(cPACIENTE* paciente);
+    
     string to_string();
 };
 
