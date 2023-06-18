@@ -11,7 +11,7 @@ cTUMOR::cTUMOR(eTipoTumor tipo):tipo(tipo)
 
 cTUMOR::~cTUMOR()
 {
-	delete[]this->get_tratamiento();
+	delete[]this->tratamiento;
 }
 
 void cTUMOR::set_tamanio(eTamanioTumor tamanio)
@@ -24,15 +24,20 @@ void cTUMOR::set_dosisAcumTumor(unsigned int dosisAcumTumor) {
 	this->dosisAcumTumor = dosisAcumTumor;
 	return;
 }
+
 void cTUMOR::set_tratamiento(cRADIOTERAPIA* tratamiento) {
 	this->tratamiento = tratamiento;
 }
+
+
 void cTUMOR::set_dosisMaxTumor(unsigned int dosis) {
 	this->dosisMaxTumor = dosis;
 }
+
 unsigned int cTUMOR::get_dosisMaxTumor() {
 	return this->dosisMaxTumor;
 }
+
 cRADIOTERAPIA* cTUMOR::get_tratamiento() {
 	return this->tratamiento;
 }
@@ -55,5 +60,3 @@ string cTUMOR::to_string() {
 void cTUMOR::imprimir() {
 
 }
-
-

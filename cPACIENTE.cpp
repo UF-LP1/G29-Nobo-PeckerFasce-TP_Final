@@ -5,7 +5,7 @@ cPACIENTE::cPACIENTE(string nombre, string dni, eTipoSangre tipoSangre, char sex
 }
 
 cPACIENTE::~cPACIENTE() {
-
+	delete[]this->ficha;
 }
 
 void cPACIENTE::set_enEspera(bool enEspera)
