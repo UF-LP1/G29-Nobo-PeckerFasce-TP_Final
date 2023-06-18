@@ -22,13 +22,14 @@ string cHOSPITAL::to_string() {
 	ss << "El hospital " << this->nombre << ", ubicado en " << this->direccion << " cuenta actualmente con " << this->pacientes.size() << " pacientes." << endl << endl << "Los pacientes son: " << endl;;
 	
 	list<cPACIENTE*>::iterator it = this->pacientes.begin();
-	int i = 0;
 
 	for (it; it != this->pacientes.end(); it++) {
-		/*
-		ss << (this->pacientes.begin() + i)->get_nombre();
-		ss << it->get_nombre();
-		*/
+		string enEspera = "";
+		if ((*it)->get_enEspera())
+			enEspera = "en espera";
+		else
+			enEspera = "en tratamiento";
+		ss << (*it)->get_nombre() << '\t' << "Estado: " << enEspera << endl;
 	}
 
 	return ss.str();

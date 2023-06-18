@@ -26,7 +26,7 @@ public:
 	time_t get_fechaProxSesion();
 	vector <cTUMOR> get_tumores();
 	string to_string();
-	cONCOLOGO get_oncologo();
+	cONCOLOGO* get_oncologo();
 	friend ostream& operator<<(ostream& out, cFICHA& ficha);
 
 private:

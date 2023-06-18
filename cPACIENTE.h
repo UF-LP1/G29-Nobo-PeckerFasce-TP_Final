@@ -8,6 +8,15 @@
 
 class cPACIENTE     
 {
+    const string nombre;
+    const string dni;
+    string telefono;
+    const eTipoSangre tipoSangre;
+    const char sexo;
+    float salud;
+    bool enEspera;
+    cFICHA* ficha;
+
 public:
 
     cPACIENTE(string nombre, string dni, eTipoSangre tipoSangre, char sexo);
@@ -15,21 +24,13 @@ public:
 
     void set_enEspera(bool enEspera);
     void set_salud(float salud);
-    void set_ficha(cFICHA ficha);
+    void set_ficha(cFICHA* ficha);
     eTipoSangre get_tipoSangre();
     float get_salud();
     char get_sexo();
     bool get_enEspera();
-    cFICHA get_ficha();
+    cFICHA* get_ficha();
     string to_string();
-
-
-private:
-
-    const string nombre;
-    const string dni;
-    string telefono;
-    
     void set_telefono(string telefono);
     string get_telefono();
     string get_nombre();
@@ -38,11 +39,7 @@ private:
     friend ostream& operator<<(ostream& out, cPACIENTE& paciente);
     bool operator==(cONCOLOGO& miOncologo);
 
-    const eTipoSangre tipoSangre;
-    const char sexo;
-    float salud;
-    bool enEspera;
-    cFICHA ficha;
+
 };
 
 #endif

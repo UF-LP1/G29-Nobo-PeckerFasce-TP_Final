@@ -13,7 +13,7 @@ void cPACIENTE::set_enEspera(bool enEspera)
 	this->enEspera = enEspera;
 	return;
 }
-void cPACIENTE::set_ficha(cFICHA ficha) {
+void cPACIENTE::set_ficha(cFICHA* ficha) {
 	this->ficha = ficha;
 }
 void cPACIENTE::set_salud(float salud)
@@ -24,7 +24,7 @@ eTipoSangre cPACIENTE::get_tipoSangre()
 {
 	return this->tipoSangre;
 }
-cFICHA cPACIENTE::get_ficha() {
+cFICHA* cPACIENTE::get_ficha() {
 	return this->ficha;
  }
 float cPACIENTE::get_salud()
@@ -88,5 +88,5 @@ string cPACIENTE::to_string() {
 }
 
  bool cPACIENTE:: operator==(cONCOLOGO& miOncologo) {
-	 return (this->ficha.get_oncologo().get_dni() == miOncologo.get_dni());
+	 return (this->ficha->get_oncologo().get_dni() == miOncologo.get_dni());
  }
