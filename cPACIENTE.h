@@ -2,11 +2,11 @@
 
 #include "eTipoSangre.h"
 #include "cFICHA.h"
+#include "cDOSIMETRISTA.h"
 #ifndef _cPACIENTE_H
 #define _cPACIENTE_H
 
-class cPACIENTE :
-    
+class cPACIENTE     
 {
 public:
 
