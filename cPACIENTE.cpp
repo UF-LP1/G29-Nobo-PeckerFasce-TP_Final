@@ -5,7 +5,7 @@ cPACIENTE::cPACIENTE(string nombre, string dni, eTipoSangre tipoSangre, char sex
 }
 
 cPACIENTE::~cPACIENTE() {
-	delete[]this->ficha;
+
 }
 
 void cPACIENTE::set_enEspera(bool enEspera)
@@ -13,20 +13,25 @@ void cPACIENTE::set_enEspera(bool enEspera)
 	this->enEspera = enEspera;
 	return;
 }
+
 void cPACIENTE::set_ficha(cFICHA* ficha) {
 	this->ficha = ficha;
 }
+
 void cPACIENTE::set_salud(float salud)
 {
 	this->salud = salud;
 }
+
 eTipoSangre cPACIENTE::get_tipoSangre()
 {
 	return this->tipoSangre;
 }
+
 cFICHA* cPACIENTE::get_ficha() {
 	return this->ficha;
  }
+
 float cPACIENTE::get_salud()
 {
 	return this->salud;

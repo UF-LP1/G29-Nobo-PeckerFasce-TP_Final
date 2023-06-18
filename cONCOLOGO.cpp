@@ -18,17 +18,19 @@ void cONCOLOGO::atender_paciente(cPACIENTE paciente) {
 
 void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista) {
 	unsigned int dosisMaxPaciente;
-	cFICHA* fichaaux=new cFICHA(this);
-	//me invento tumores
+		//me invento tumores
 	generar_diagnostico(paciente);
 	//me invento tratamientos 
 	generar_tratamiento(paciente);
 	//pido que me inventen dosis para los tratamientos
 	dosimetrista.generar_dosis(paciente);
+	//me fijo que tan seguido tiene que volver 
+	paciente->get_ficha()->set_frecuenciaSemanal(this->generar_frecuenciaSemanal(paciente));
 	//digo que la fecha de la ultima sesion fue hoy y te digo cuando tiene que volver el paciente 
-	
+	paciente->get_ficha()->set_fechaUltimaSesion(time(0));
+	paciente->get_ficha()->set_fechaProxSesion();//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//le doy la ficha al paciente
-	paciente->set_ficha(fichaaux);
+	
 	return;
 }
 
@@ -49,8 +51,8 @@ void cONCOLOGO::generar_diagnostico(cPACIENTE* paciente) {
 		tumores.push_back(aux);
 		tumores[j].set_tamanio(eTamanioTumor(rand() % 3));
 	}
-	cFICHA fichaaux = paciente->get_ficha();
-	fichaaux.set_tumores(tumores);
+	cFICHA* fichaaux = paciente->get_ficha();
+	fichaaux->set_tumores(tumores);
 	paciente->set_ficha(fichaaux);
 	return;
 }
@@ -62,13 +64,13 @@ string cONCOLOGO::to_string() {
 }
 
 void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
-	if (paciente->get_ficha().get_tumores().empty()) {
+	if (paciente->get_ficha()->get_tumores().empty()) {
 		throw exNoHayTumores();
 	}
-	for (int i = 0; i < paciente->get_ficha().get_tumores().size(); i++) {
+	for (int i = 0; i < paciente->get_ficha()->get_tumores().size(); i++) {
 		
 		cRADIOTERAPIA* tratamiento;
-		eTipoTumor aux = paciente->get_ficha().get_tumores()[i].tipo;
+		eTipoTumor aux = paciente->get_ficha()->get_tumores()[i].tipo;
 		srand(time(NULL));
 		int hazExt = rand() % 2;
 		//como el haz externo trata todos los tumores primero veo si lo trato con esto y sino le pongo el tratamiento especifico para el tipo de tumor del paciente 
@@ -109,14 +111,22 @@ void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
 			}
 		}
 
-		paciente->get_ficha().get_tumores()[i].set_tratamiento(tratamiento);
+		paciente->get_ficha()->get_tumores()[i].set_tratamiento(tratamiento);
 	}
 	return;
 }
-/*
-haz externo -->ante la duda
-braquiterapia --> cabeza, cuello, mama, cuello uterino, ojo
-sistemica --> tiroides, protata
-enum eTipoTumor { cabeza, pulmon, cuello, mama, utero, ojo, tiroides, prostata, intestino};
-
-*/
+unsigned int cONCOLOGO::generar_frecuenciaSemanal(cPACIENTE* paciente)
+{
+	srand(time(NULL));
+	unsigned int frecuencia=rand() % 3;
+	if (paciente->get_salud() < 0.30) {
+		frecuencia = frecuencia + 5;
+	}
+	else if (paciente->get_salud() < 0.60) {
+		frecuencia = frecuencia + 2;
+	}
+	else if (frecuencia == 0) {
+		frecuencia++;
+	}//esta sano viene aunque sea una vez
+		
+}
