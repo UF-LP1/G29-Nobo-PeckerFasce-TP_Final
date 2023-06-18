@@ -18,6 +18,7 @@ public:
     void generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista);
     void generar_diagnostico(cPACIENTE* paciente);
     void generar_tratamiento(cPACIENTE* paciente);
+    unsigned int generar_frecuenciaSemanal(cPACIENTE*paciente);
     string to_string();
 };
 
