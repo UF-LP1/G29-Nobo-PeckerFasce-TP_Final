@@ -29,6 +29,8 @@ string cMEDICO::get_dni()
 	return this->dni;
 }
 
-void cMEDICO::imprimir()
-{
+ostream& operator<<(ostream& out, cMEDICO& medico) {
+	out << medico.to_string();
+	return out;
 }
+

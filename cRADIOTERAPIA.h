@@ -26,7 +26,7 @@ public:
 	virtual unsigned int ajustar_dosis(eTamanioTumor tamanio) = 0; 
 	//genero con random una dosis maxima para cada tumor
 	virtual string to_string()=0;
-	void imprimir();
+	friend ostream& operator<<(ostream& out, cRADIOTERAPIA& radioterapia);
 
 };
 

@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef _cPERSONA_H
-#define _cPERSONA_H
+#ifndef _cMEDICO_H
+#define _cMEDICO_H
 
 #include <iostream>
 #include <string>
@@ -30,7 +30,7 @@ public:
     string get_nombre();
     string get_dni();
     virtual string to_string()=0;
-    void imprimir();//SOBRECARGA
+    friend ostream& operator<<(ostream& out, cMEDICO& medico);
 
 protected:
     const string nombre;

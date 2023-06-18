@@ -27,6 +27,7 @@ unsigned int cRADIOTERAPIA::get_frecuenciaSemanalPorTumor() {
 	return this->frecuenciaSemanalPorTumor;
 }
 
-void cRADIOTERAPIA::imprimir() {
-
+ostream& operator<<(ostream& out, cRADIOTERAPIA& radioterapia) {
+	out << radioterapia.to_string();
+	return out;
 }
