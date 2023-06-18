@@ -57,3 +57,23 @@ string cONCOLOGO::to_string() {
 	ss << "Oncologo " << this->nombre << ", con DNI: " << this->dni << " y numero de telefono: " << this->telefono;
 	return ss.str();
 }
+
+void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
+	for (int i = 0; i < paciente->get_ficha().get_tumores().size(); i++) {
+		eTipoTumor aux = paciente->get_ficha().get_tumores()[i].tipo;
+		srand (time(NULL));
+		int hazExt = rand() % 2;
+		if(hazExt==1||aux==pulmon||aux==intestino)
+
+		switch (aux){
+			case 
+		}
+	}
+}
+/*
+haz externo -->ante la duda
+braquiterapia --> cabeza, cuello, mama, cuello uterino, ojo
+sistemica --> tiroides, protata
+enum eTipoTumor { cabeza, pulmon, cuello, mama, utero, ojo, tiroides, prostata, intestino};
+
+*/

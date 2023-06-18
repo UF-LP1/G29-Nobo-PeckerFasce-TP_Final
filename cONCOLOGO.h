@@ -17,7 +17,7 @@ public:
     void atender_paciente(cPACIENTE paciente);
     void generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista);
     void generar_diagnostico(cPACIENTE* paciente);
-    
+    void generar_tratamiento(cPACIENTE* paciente);
     string to_string();
 };
 
