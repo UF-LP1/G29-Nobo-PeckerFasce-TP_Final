@@ -29,3 +29,15 @@ public:
 		return "No se ha encontrado el paciente en la lista de pacientes";
 	}
 };
+class exDosisMaxAlcanzadaTumor :public exception {
+public:
+	const char* what()const throw() {
+		return "La dosis maxima de este tumor fue alcanzada";
+	}
+};
+class exDosisMaxAlcanzadaPaciente :public exception {
+public:
+	const char* what()const throw() {
+		return "La dosis maxima de este paciente fue alcanzada";
+	}
+};
