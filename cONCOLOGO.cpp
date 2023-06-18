@@ -1,5 +1,5 @@
 #include "cONCOLOGO.h"
-
+#define dia 86400
 cONCOLOGO::cONCOLOGO(string nombre, string dni) :cMEDICO(nombre, dni) {
 
 }
@@ -13,7 +13,7 @@ void cONCOLOGO::pasar_lista_espera(cPACIENTE paciente) {
 }
 
 void cONCOLOGO::atender_paciente(cPACIENTE paciente) {
-
+//ver dosis acum total
 }
 
 void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista) {
@@ -28,8 +28,24 @@ void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetri
 	paciente->get_ficha()->set_frecuenciaSemanal(this->generar_frecuenciaSemanal(paciente));
 	//digo que la fecha de la ultima sesion fue hoy y te digo cuando tiene que volver el paciente 
 	paciente->get_ficha()->set_fechaUltimaSesion(time(0));
-	paciente->get_ficha()->set_fechaProxSesion();//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//le doy la ficha al paciente
+	unsigned int dia_vuelta;
+	switch (paciente->get_ficha()->get_frecuenciaSemanal()) {
+	case 1: {
+		dia_vuelta = 7;
+		break;
+	}
+	case 2: {
+		dia_vuelta = 3;
+		break;
+	}
+	case 3: {
+		dia_vuelta = 2;
+		break;
+	}
+	}
+	
+	paciente->get_ficha()->set_fechaProxSesion(paciente->get_ficha()->get_fechaUltimaSesion()+dia_vuelta*dia);
+	
 	
 	return;
 }
@@ -115,18 +131,18 @@ void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
 	}
 	return;
 }
+
 unsigned int cONCOLOGO::generar_frecuenciaSemanal(cPACIENTE* paciente)
 {
-	srand(time(NULL));
-	unsigned int frecuencia=rand() % 3;
+	unsigned int frecuencia;
 	if (paciente->get_salud() < 0.30) {
-		frecuencia = frecuencia + 5;
+		frecuencia = 3;
 	}
 	else if (paciente->get_salud() < 0.60) {
-		frecuencia = frecuencia + 2;
+		frecuencia = 2;
 	}
-	else if (frecuencia == 0) {
-		frecuencia++;
-	}//esta sano viene aunque sea una vez
-		
+	else  {
+		frecuencia=1;
+	}
+	return frecuencia;
 }
