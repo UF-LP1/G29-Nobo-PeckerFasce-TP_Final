@@ -17,8 +17,7 @@ void cONCOLOGO::atender_paciente(cPACIENTE paciente) {
 }
 
 void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista) {
-	unsigned int dosisMaxPaciente;
-		//me invento tumores
+	//me invento tumores
 	generar_diagnostico(paciente);
 	//me invento tratamientos 
 	generar_tratamiento(paciente);
