@@ -18,7 +18,7 @@ void cONCOLOGO::atender_paciente(cPACIENTE paciente) {
 
 void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista) {
 	unsigned int dosisMaxPaciente;
-	cFICHA fichaaux;
+	cFICHA* fichaaux=new cFICHA(this);
 	//me invento tumores
 	generar_diagnostico(paciente);
 	//me invento tratamientos 
@@ -28,6 +28,7 @@ void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetri
 	//digo que la fecha de la ultima sesion fue hoy y te digo cuando tiene que volver el paciente 
 	
 	//le doy la ficha al paciente
+	paciente->set_ficha(fichaaux);
 	return;
 }
 
