@@ -1,6 +1,6 @@
 #include "cFICHA.h"
 
-cFICHA::cFICHA() {
+cFICHA::cFICHA(cONCOLOGO oncologo):oncologo(oncologo) {
 	this->dosisAcumTotal = 0;
 	this->dosisMax = 0;
 	this->fechaProxSesion = 0;
@@ -13,6 +13,9 @@ cFICHA::~cFICHA() {
 }
 
 void cFICHA::set_dosisAcumTotal(unsigned int dosisAcumTotal) {
+	//CUANDO CALCULE LA DOSIS ACUM TOTAL 
+	//Radiacion_paciente = Tumores_RTPHazExterno * 0.3 + Tumores_Braquiterapia * 0.6 +Tumores_Sistemico * 0.1
+
 	this->dosisAcumTotal = dosisAcumTotal;
 	return;
 }
@@ -36,9 +39,11 @@ void cFICHA::set_frecuenciaSemanal(unsigned int frecuenciaSemanal) {
 	this->frecuenciaSemanal = frecuenciaSemanal;
 	return;
 }
+
 void cFICHA::set_tumores(vector<cTUMOR> tumores) {
 	this->tumores = tumores;
 }
+
 unsigned int cFICHA::get_dosisAcumTotal() {
 	return this->dosisAcumTotal;
 }
@@ -86,6 +91,10 @@ string cFICHA::to_string() {
 		ss << "La dosis maxima es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. La ultima sesion fue el dia " << ctime(&(this->fechaUltimaSesion)) << ". La proxima sesion sera el dia " << ctime(&(this->fechaProxSesion)) << "." << ssaux.str();
 	}
 	return ss.str();
+}
+
+cONCOLOGO cFICHA::get_oncologo(){
+	return this->oncologo;
 }
 
 ostream& operator<<(ostream& out, cFICHA& ficha) {
