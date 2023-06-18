@@ -44,6 +44,8 @@ void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetri
 	}
 	
 	paciente->get_ficha()->set_fechaProxSesion(paciente->get_ficha()->get_fechaUltimaSesion()+dia_vuelta*dia);
+	//calculo la dosis max del paciente
+	paciente->get_ficha()->set_dosisMax(calcular_dosisMax(paciente));
 	
 	
 	return;
@@ -76,6 +78,27 @@ string cONCOLOGO::to_string() {
 	stringstream ss;
 	ss << "Oncologo " << this->nombre << ", con DNI: " << this->dni << " y numero de telefono: " << this->telefono;
 	return ss.str();
+}
+
+unsigned int cONCOLOGO::calcular_dosisMax(cPACIENTE* paciente)
+{
+	bool hayHE, haySIS, hayBRAQ;
+	hayHE = haySIS = hayBRAQ = false;
+	unsigned int max;
+	for (int i = 0; i < paciente->get_ficha()->get_tumores().size(); i++) {
+		cRADIOTERAPIA* aux=paciente->get_ficha()->get_tumores()[i].get_tratamiento();
+		if (dynamic_cast<cBRAQUITERAPIA*>(aux) != nullptr)
+			hayBRAQ = true;
+		else if (dynamic_cast<cSISTEMICA*>(aux) != nullptr)
+			haySIS = true;
+		else
+			hayHE = true;
+
+	}
+	if (hayHE || haySIS)
+		max = 100;
+	else max = 180;
+	return max;
 }
 
 void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
