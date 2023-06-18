@@ -86,3 +86,7 @@ string cPACIENTE::to_string() {
 	 out << paciente.to_string();
 	 return out;
 }
+
+ bool cPACIENTE:: operator==(cONCOLOGO& miOncologo) {
+	 return (this->ficha.get_oncologo().get_dni() == miOncologo.get_dni());
+ }

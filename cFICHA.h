@@ -10,7 +10,7 @@ class cFICHA
 {
 public:
 
-	cFICHA();
+	cFICHA(cONCOLOGO oncologo);
 	~cFICHA();
 
 	void set_dosisAcumTotal(unsigned int dosisAcumTotal);
@@ -26,6 +26,7 @@ public:
 	time_t get_fechaProxSesion();
 	vector <cTUMOR> get_tumores();
 	string to_string();
+	cONCOLOGO get_oncologo();
 	friend ostream& operator<<(ostream& out, cFICHA& ficha);
 
 private:
@@ -36,6 +37,7 @@ private:
 	time_t fechaProxSesion;
 	unsigned int frecuenciaSemanal;
 	vector < cTUMOR > tumores;
+	const cONCOLOGO oncologo;
 
 };
 
