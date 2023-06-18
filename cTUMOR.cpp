@@ -52,7 +52,16 @@ unsigned int cTUMOR::get_dosisAcumTumor() {
 
 string cTUMOR::to_string() {
 	stringstream ss;
-	ss << "Tumor de " << this->tipo << ", de tamanio " << this->tamanio << ". Dosis acumuladas hasta ahora: " << this->dosisAcumTumor;
+
+	string tratamiento = "";
+	if (dynamic_cast<cBRAQUITERAPIA*>(this->tratamiento) != nullptr)
+		tratamiento = "braquiterapia";
+	else if (dynamic_cast<cHAZEXTERNO*>(this->tratamiento) != nullptr)
+		tratamiento = "radioterapia de haz externo";
+	else if (dynamic_cast<cHAZEXTERNO*>(this->tratamiento) != nullptr)
+		tratamiento = "radioterapia sistemica";
+
+	ss << "Tumor de " << this->tipo << ", de tamanio " << this->tamanio <<", tratado con "<<tratamiento << ". Dosis acumuladas hasta ahora: " << this->dosisAcumTumor;
 	return ss.str();
 
 }

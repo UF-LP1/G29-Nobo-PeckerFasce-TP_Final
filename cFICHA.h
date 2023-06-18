@@ -37,7 +37,7 @@ private:
 	time_t fechaProxSesion;
 	unsigned int frecuenciaSemanal;
 	vector < cTUMOR > tumores;
-	const cONCOLOGO* oncologo;
+	cONCOLOGO* oncologo;
 
 };
 

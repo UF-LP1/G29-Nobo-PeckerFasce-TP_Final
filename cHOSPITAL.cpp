@@ -27,9 +27,11 @@ list <cPACIENTE*> cHOSPITAL::buscar_por_menos_del_5porciento() {
 
 	for (it; it != this->pacientes.end(); it++) {
 		for (int i = 0; i < (*it)->get_ficha()->get_tumores().size(); i++) {
-			float porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / (*it)->get_ficha()->get_tumores()[i].get_dosisMaxTumor());
-			if (porcentaje>95)
-				aux.push_back((*it));
+			if ((*it)->get_ficha()->get_tumores()[i].get_dosisMaxTumor() != 0) {
+				float porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / (*it)->get_ficha()->get_tumores()[i].get_dosisMaxTumor());
+				if (porcentaje>95)
+					aux.push_back((*it));
+			}
 		}
 	}
 	return aux;
@@ -48,7 +50,7 @@ string cHOSPITAL::to_string() {
 			enEspera = "en espera";
 		else
 			enEspera = "en tratamiento";
-		ss << (*it)->get_nombre() << '\t' << "Estado: " << enEspera << endl;
+		ss << (*it)->get_nombre() << '\t' << "Estado: " << enEspera << endl<< "Ficha medica del paciente: "<<(*it)->get_ficha()->to_string();
 	}
 
 	return ss.str();
