@@ -1,6 +1,6 @@
 #include "cFICHA.h"
 
-cFICHA::cFICHA(cONCOLOGO oncologo):oncologo(oncologo) {
+cFICHA::cFICHA(cONCOLOGO* oncologo):oncologo(oncologo) {
 	this->dosisAcumTotal = 0;
 	this->dosisMax = 0;
 	this->fechaProxSesion = 0;

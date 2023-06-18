@@ -10,7 +10,7 @@ class cFICHA
 {
 public:
 
-	cFICHA(cONCOLOGO oncologo);
+	cFICHA(cONCOLOGO* oncologo);
 	~cFICHA();
 
 	void set_dosisAcumTotal(unsigned int dosisAcumTotal);
@@ -37,7 +37,7 @@ private:
 	time_t fechaProxSesion;
 	unsigned int frecuenciaSemanal;
 	vector < cTUMOR > tumores;
-	const cONCOLOGO oncologo;
+	const cONCOLOGO* oncologo;
 
 };
 
