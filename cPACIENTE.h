@@ -35,7 +35,7 @@ private:
     string get_nombre();
     string get_dni();
      string to_string();
-     friend ostream& operator<<(ostream& out; cPACIENTE& paciente);
+     friend ostream& operator<<(ostream& out, cPACIENTE& paciente);
 
     const eTipoSangre tipoSangre;
     const char sexo;

@@ -82,7 +82,7 @@ string cPACIENTE::to_string() {
 	return ss.str();
 }
 
- ostream& operator<<(ostream& out; cPACIENTE& paciente) {
-	 out << paciente.to_string;
+ ostream& operator<<(ostream& out, cPACIENTE& paciente) {
+	 out << paciente.to_string();
 	 return out;
 }
