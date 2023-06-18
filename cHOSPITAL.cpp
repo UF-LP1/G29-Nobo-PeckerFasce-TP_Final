@@ -8,12 +8,31 @@ cHOSPITAL::~cHOSPITAL() {
 
 }
 
-list <cPACIENTE> cHOSPITAL::buscar_por_tratamiento_y_tumor(eRadioterapia tratamiento, eTipoTumor tumor) {
-
+list <cPACIENTE*> cHOSPITAL::buscar_por_tratamiento_y_tumor(eRadioterapia tratamiento, eTipoTumor tumor) {
+	list<cPACIENTE*>::iterator it = this->pacientes.begin();
+	list<cPACIENTE*> aux;
+	
+	for (it; it != this->pacientes.end(); it++) {
+		for (int i = 0; i < (*it)->get_ficha()->get_tumores().size(); i++) {
+			if ((*it)->get_ficha()->get_tumores()[i].get_tratamiento()->tratamiento == tratamiento && (*it)->get_ficha()->get_tumores()[i].tipo == tumor)
+				aux.push_back((*it));
+		}
+	}
+	return aux;
 }
 
-list <cPACIENTE> cHOSPITAL::buscar_por_menos_del_5porciento() {
+list <cPACIENTE*> cHOSPITAL::buscar_por_menos_del_5porciento() {
+	list<cPACIENTE*>::iterator it = this->pacientes.begin();
+	list<cPACIENTE*> aux;
 
+	for (it; it != this->pacientes.end(); it++) {
+		for (int i = 0; i < (*it)->get_ficha()->get_tumores().size(); i++) {
+			float porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / (*it)->get_ficha()->get_tumores()[i].get_dosisMaxTumor());
+			if (porcentaje>95)
+				aux.push_back((*it));
+		}
+	}
+	return aux;
 }
 
 
@@ -37,7 +56,49 @@ string cHOSPITAL::to_string() {
 
 void cHOSPITAL::operator+(cPACIENTE* paciente)
 {
-	
+	try {
+		buscar(paciente);
+	}
+	catch (exPacienteYaExistente& error) {
+		cout <<endl << error.what() << endl;
+		return;
+	}
+
+	this->pacientes.push_back(paciente);
+	return;
+
+}
+
+void cHOSPITAL::operator-(cPACIENTE* paciente)
+{
+	try {
+		buscar(paciente);
+	}
+	catch (exPacienteNoEncontrado& error) {
+		cout << endl << error.what() << endl;
+		return;
+	}
+
+	this->pacientes.remove(paciente);
+	return;
+}
+
+void cHOSPITAL::buscar(cPACIENTE* paciente)
+{
+	list<cPACIENTE*>::iterator it = this->pacientes.begin();
+	bool flag = false;
+
+	for (it; it != this->pacientes.end(); it++) {
+		if ((*it) == paciente)
+			flag = true;
+	}
+
+	if (flag)
+		throw exPacienteYaExistente();
+	else
+		throw exPacienteNoEncontrado();
+
+	return;
 }
 
 ostream& operator<<(ostream& out, cHOSPITAL& hospital)
