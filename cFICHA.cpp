@@ -77,7 +77,7 @@ string cFICHA::to_string() {
 			throw exTratamientoNoComenzado();
 	}
 	catch (exTratamientoNoComenzado& error){
-		ss << error.what();
+		ss << endl << error.what() << endl;
 		return ss.str();
 	}
 
@@ -86,14 +86,15 @@ string cFICHA::to_string() {
 		float porcentaje = (float)(this->dosisAcumTotal * 100 / this->dosisMax);
 		for (int i = 0; i < this->tumores.size();i++) {
 			string aux= this->tumores[i].to_string();
-			ssaux << "Tumor " << i + 1 << ": " << aux;
+			ssaux <<'\t' << "Tumor " << i + 1 << ": " << aux << endl;
 		}
-		ss << "La dosis maxima es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. La ultima sesion fue el dia " << ctime(&(this->fechaUltimaSesion)) << ". La proxima sesion sera el dia " << ctime(&(this->fechaProxSesion)) << "." << ssaux.str();
+		ss << "Oncologo a cargo: " << this->oncologo->get_nombre() << endl;
+		ss << "La dosis maxima del pacinete es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. "<<endl<<"La ultima sesion fue el dia " << ctime(&(this->fechaUltimaSesion)) << ". La proxima sesion sera el dia " << ctime(&(this->fechaProxSesion)) << "." <<endl<<"Diagnostico: "<< ssaux.str() << endl;
 	}
 	return ss.str();
 }
 
-cONCOLOGO cFICHA::get_oncologo(){
+cONCOLOGO* cFICHA::get_oncologo(){
 	return this->oncologo;
 }
 
