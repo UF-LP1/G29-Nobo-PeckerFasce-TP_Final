@@ -2,7 +2,7 @@
 unsigned int cBRAQUITERAPIA::dosisMaxPaciente = 180;
 unsigned int cBRAQUITERAPIA::dosisMaxTumor = 150;
 
-cBRAQUITERAPIA::cBRAQUITERAPIA():cRADIOTERAPIA(braquiterapia) {
+cBRAQUITERAPIA::cBRAQUITERAPIA(eTamanioTumor tamanio):cRADIOTERAPIA(braquiterapia, tamanio) {
 
 }
 

@@ -4,9 +4,9 @@
 #define _cRADIOTERAPIA_H
 
 #include "eTipoTumor.h"
-#include "cTUMOR.h"
+#include <string>
 #include <sstream>
-
+using namespace std;
 class cRADIOTERAPIA
 {
 protected:
@@ -16,7 +16,7 @@ protected:
 public:
 	const eRadioterapia tratamiento;
 
-	cRADIOTERAPIA(eRadioterapia tratamiento);
+	cRADIOTERAPIA(eRadioterapia tratamiento, eTamanioTumor tamanio);
 	~cRADIOTERAPIA();
 
 	void set_dosisPorSesion(unsigned int dosisPorSesion);

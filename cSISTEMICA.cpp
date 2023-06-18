@@ -1,7 +1,7 @@
 #include "cSISTEMICA.h"
 unsigned int cSISTEMICA::dosisMaxPaciente = 100;
 unsigned int cSISTEMICA::dosisMaxPaciente = 60;
-cSISTEMICA::cSISTEMICA() :cRADIOTERAPIA(sistemica) {
+cSISTEMICA::cSISTEMICA(eTamanioTumor tamanio) :cRADIOTERAPIA(sistemica, tamanio) {
 
 }
 

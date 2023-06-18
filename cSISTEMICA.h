@@ -12,7 +12,7 @@ public:
     static unsigned int dosisMaxTumor;
 
 
-    cSISTEMICA();
+    cSISTEMICA(eTamanioTumor tamanio);
     ~cSISTEMICA();
     unsigned int ajustar_dosis(eTamanioTumor tamanio);
     string to_string();

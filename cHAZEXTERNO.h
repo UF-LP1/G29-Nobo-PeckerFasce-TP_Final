@@ -11,7 +11,7 @@ public:
     static unsigned int dosisMaxPaciente;
     static unsigned int dosisMaxTumor;
 
-    cHAZEXTERNO();
+    cHAZEXTERNO(eTamanioTumor tamanio);
     ~cHAZEXTERNO();
     unsigned int ajustar_dosis(eTamanioTumor tamanio);
     string to_string();
