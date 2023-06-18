@@ -4,7 +4,7 @@
 #define _cONCOLOGO_H
 
 #include "cPACIENTE.h"
-#include "cDOSIMETRISTA.h"
+
 
 class cONCOLOGO :
     public cMEDICO
