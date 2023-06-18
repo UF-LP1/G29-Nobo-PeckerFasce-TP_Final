@@ -11,6 +11,7 @@ cTUMOR::cTUMOR(eTipoTumor tipo):tipo(tipo)
 
 cTUMOR::~cTUMOR()
 {
+	delete[]this->get_tratamiento();
 }
 
 void cTUMOR::set_tamanio(eTamanioTumor tamanio)

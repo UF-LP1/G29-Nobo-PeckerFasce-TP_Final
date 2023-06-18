@@ -22,10 +22,12 @@ void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetri
 	//me invento tumores
 	generar_diagnostico(paciente);
 	//me invento tratamientos 
-	
+	generar_tratamiento(paciente);
 	//pido que me inventen dosis para los tratamientos
 	dosimetrista.generar_dosis(paciente);
+	//digo que la fecha de la ultima sesion fue hoy y te digo cuando tiene que volver el paciente 
 	
+	//le doy la ficha al paciente
 	return;
 }
 
