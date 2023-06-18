@@ -1,4 +1,5 @@
 #include "cPACIENTE.h"
+//////////////////
 
 cPACIENTE::cPACIENTE(string nombre, string dni, eTipoSangre tipoSangre, char sexo) : sexo(sexo), tipoSangre(tipoSangre) {
 	this->enEspera = false;
