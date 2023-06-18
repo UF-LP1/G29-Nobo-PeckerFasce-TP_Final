@@ -8,7 +8,9 @@ class cSISTEMICA :
     public cRADIOTERAPIA
 {
 public:
-    static unsigned int dosisMax;
+    static unsigned int dosisMaxPaciente;
+    static unsigned int dosisMaxTumor;
+
 
     cSISTEMICA();
     ~cSISTEMICA();

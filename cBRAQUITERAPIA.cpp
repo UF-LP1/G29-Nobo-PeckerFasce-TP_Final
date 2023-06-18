@@ -1,4 +1,6 @@
 #include "cBRAQUITERAPIA.h"
+unsigned int cBRAQUITERAPIA::dosisMaxPaciente = 180;
+unsigned int cBRAQUITERAPIA::dosisMaxTumor = 150;
 
 cBRAQUITERAPIA::cBRAQUITERAPIA():cRADIOTERAPIA(braquiterapia) {
 

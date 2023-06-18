@@ -96,8 +96,8 @@ unsigned int cONCOLOGO::calcular_dosisMax(cPACIENTE* paciente)
 
 	}
 	if (hayHE || haySIS)
-		max = 100;
-	else max = 180;
+		max = cHAZEXTERNO::dosisMaxPaciente;
+	else max = cBRAQUITERAPIA::dosisMaxPaciente;
 	return max;
 }
 

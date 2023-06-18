@@ -1,5 +1,6 @@
 #include "cHAZEXTERNO.h"
-
+unsigned int cHAZEXTERNO::dosisMaxPaciente = 100;
+unsigned int cHAZEXTERNO::dosisMaxPaciente = 60;
 cHAZEXTERNO::cHAZEXTERNO():cRADIOTERAPIA(hazExterno) {
 
 }

@@ -8,7 +8,8 @@ class cHAZEXTERNO :
     public cRADIOTERAPIA
 {
 public:
-    static unsigned int dosisMax;
+    static unsigned int dosisMaxPaciente;
+    static unsigned int dosisMaxTumor;
 
     cHAZEXTERNO();
     ~cHAZEXTERNO();
