@@ -134,7 +134,7 @@
     <ClInclude Include="cHOSPITAL.h" />
     <ClInclude Include="cONCOLOGO.h" />
     <ClInclude Include="cPACIENTE.h" />
-    <ClInclude Include="cPERSONA.h" />
+    <ClInclude Include="cMEDICO.h" />
     <ClInclude Include="cRADIOTERAPIA.h" />
     <ClInclude Include="cSISTEMICA.h" />
     <ClInclude Include="cTUMOR.h" />
@@ -152,7 +152,7 @@
     <ClCompile Include="cHOSPITAL.cpp" />
     <ClCompile Include="cONCOLOGO.cpp" />
     <ClCompile Include="cPACIENTE.cpp" />
-    <ClCompile Include="cPERSONA.cpp" />
+    <ClCompile Include="cMEDICO.cpp" />
     <ClCompile Include="cRADIOTERAPIA.cpp" />
     <ClCompile Include="cSISTEMICA.cpp" />
     <ClCompile Include="cTUMOR.cpp" />

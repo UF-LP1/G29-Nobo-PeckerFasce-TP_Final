@@ -18,7 +18,7 @@
     <ClInclude Include="cHOSPITAL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cPERSONA.h">
+    <ClInclude Include="cMEDICO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cPACIENTE.h">
@@ -68,7 +68,7 @@
     <ClCompile Include="cHOSPITAL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cPERSONA.cpp">
+    <ClCompile Include="cMEDICO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cPACIENTE.cpp">
