@@ -14,6 +14,7 @@ public:
     ~cONCOLOGO();
 
     void pasar_lista_espera(cPACIENTE* paciente);
+    void sacar_lista_espera(cPACIENTE* paciente, cDOSIMETRISTA* dosimetrista);
     void atender_paciente(cPACIENTE* paciente);
     void generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA* dosimetrista);
     void generar_diagnostico(cPACIENTE* paciente);

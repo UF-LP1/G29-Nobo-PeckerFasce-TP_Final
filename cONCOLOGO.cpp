@@ -14,6 +14,12 @@ void cONCOLOGO::pasar_lista_espera(cPACIENTE* paciente) {
 	return;
 }
 
+void cONCOLOGO::sacar_lista_espera(cPACIENTE* paciente,cDOSIMETRISTA* dosimetrista)
+{
+	paciente->set_enEspera(false);
+	generar_ficha_nueva(paciente, dosimetrista);//vuelvo a empezar para ver la salud, que tumores tiene y como los tengo que tratar, etc
+}
+
 void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 	unsigned int nuevadosisT = 0;
 	unsigned int nuevadosisP = 0;
