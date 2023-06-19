@@ -10,23 +10,67 @@ cONCOLOGO::~cONCOLOGO() {
 
 void cONCOLOGO::pasar_lista_espera(cPACIENTE* paciente) {
 	paciente->set_enEspera(true);
+	throw exDosisMaxAlcanzadaPaciente();
+	return;
 }
 
 void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
-	unsigned int nuevadosis = 0;
+	unsigned int nuevadosisT = 0;
+	unsigned int nuevadosisP = 0;
+	bool flagtumor = false;
+	bool flagpaciente = false;
+	int tamanio = paciente->get_ficha()->get_tumores().size();
 
-	for (int i = 0; i < paciente->get_ficha()->get_tumores().size(); i++) {
-		nuevadosis = paciente->get_ficha()->get_tumores()[i].get_dosisAcumTumor() + paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion();
+	for (int i = 0; i < tamanio; i++) {
+		
+		
 		if (dynamic_cast<cBRAQUITERAPIA*>(paciente->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr) {
-			if (nuevadosis > cBRAQUITERAPIA::dosisMaxTumor)
-				throw exDo
+			nuevadosisT = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion()+paciente->get_ficha()->get_tumores()[i].get_dosisAcumTumor();
+			nuevadosisP = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion()* 0.6 + paciente->get_ficha()->get_dosisAcumTotal();
+			if (nuevadosisT  > cBRAQUITERAPIA::dosisMaxTumor) {
+				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); //elimino el tumor de la lista para que no siga siendo tratado
+				throw exDosisMaxAlcanzadaTumor();
+				flagtumor = true;
+			}
+			if (nuevadosisP> cBRAQUITERAPIA::dosisMaxPaciente) {
+				pasar_lista_espera(paciente);
+				flagpaciente = true;
+			}
+		}else if (dynamic_cast<cHAZEXTERNO*>(paciente->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr){
+			nuevadosisT = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion() + paciente->get_ficha()->get_tumores()[i].get_dosisAcumTumor();
+			nuevadosisP = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion() * 0.3 + paciente->get_ficha()->get_dosisAcumTotal();
+			if (nuevadosisT > cHAZEXTERNO::dosisMaxTumor) {
+				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); 
+				throw exDosisMaxAlcanzadaTumor();
+				flagtumor = true;
+			}
+			if (nuevadosisP > cHAZEXTERNO::dosisMaxPaciente) {
+				pasar_lista_espera(paciente);
+				flagpaciente = true;
+			}
 		}
+		else if (dynamic_cast<cSISTEMICA*>(paciente->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr) {
+			nuevadosisT = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion() + paciente->get_ficha()->get_tumores()[i].get_dosisAcumTumor();
+			nuevadosisP = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion() * 0.1 + paciente->get_ficha()->get_dosisAcumTotal();
+			if (nuevadosisT > cHAZEXTERNO::dosisMaxTumor) {
+				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); 
+				throw exDosisMaxAlcanzadaTumor();
+				flagtumor = true;
+			}
+			if (nuevadosisP > cHAZEXTERNO::dosisMaxPaciente) {
+				pasar_lista_espera(paciente);
+				flagpaciente = true;
+			}
+		}
+
+		if (!flagpaciente && !flagtumor) { //si no alcanzo la max total ni la max del tumor
+			paciente->get_ficha()->get_tumores()[i].set_dosisAcumTumor(nuevadosisT);
+			paciente->get_ficha()->set_dosisAcumTotal(nuevadosisP);
+		}	
 	}
-	
-	
-//ver dosis acum total
-//me fijo cuando le sumo al tumor q no se me vaya de la max
-//le sumo segun ajustar dosis
+
+	//acomodar fechas: paciente->get_ficha()
+
 }
 
 void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA* dosimetrista) {
