@@ -8,21 +8,34 @@ cONCOLOGO::~cONCOLOGO() {
 
 }
 
-void cONCOLOGO::pasar_lista_espera(cPACIENTE paciente) {
-	paciente.set_enEspera(true);
+void cONCOLOGO::pasar_lista_espera(cPACIENTE* paciente) {
+	paciente->set_enEspera(true);
 }
 
-void cONCOLOGO::atender_paciente(cPACIENTE paciente) {
+void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
+	unsigned int nuevadosis = 0;
+
+	for (int i = 0; i < paciente->get_ficha()->get_tumores().size(); i++) {
+		nuevadosis = paciente->get_ficha()->get_tumores()[i].get_dosisAcumTumor() + paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion();
+		if (dynamic_cast<cBRAQUITERAPIA*>(paciente->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr) {
+			if (nuevadosis > cBRAQUITERAPIA::dosisMaxTumor)
+				throw exDo
+		}
+	}
+	
+	
 //ver dosis acum total
+//me fijo cuando le sumo al tumor q no se me vaya de la max
+//le sumo segun ajustar dosis
 }
 
-void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA dosimetrista) {
+void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA* dosimetrista) {
 	//me invento tumores
 	generar_diagnostico(paciente);
 	//me invento tratamientos 
 	generar_tratamiento(paciente);
 	//pido que me inventen dosis para los tratamientos
-	dosimetrista.generar_dosis(paciente);
+	dosimetrista->generar_dosis(paciente);
 	//me fijo que tan seguido tiene que volver 
 	paciente->get_ficha()->set_frecuenciaSemanal(this->generar_frecuenciaSemanal(paciente));
 	//digo que la fecha de la ultima sesion fue hoy y te digo cuando tiene que volver el paciente 
