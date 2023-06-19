@@ -83,24 +83,7 @@ void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA* dosimetr
 	//me fijo que tan seguido tiene que volver 
 	paciente->get_ficha()->set_frecuenciaSemanal(this->generar_frecuenciaSemanal(paciente));
 	//digo que la fecha de la ultima sesion fue hoy y te digo cuando tiene que volver el paciente 
-	paciente->get_ficha()->set_fechaUltimaSesion(time(0));
-	unsigned int dia_vuelta;
-	switch (paciente->get_ficha()->get_frecuenciaSemanal()) {
-	case 1: {
-		dia_vuelta = 7;
-		break;
-	}
-	case 2: {
-		dia_vuelta = 3;
-		break;
-	}
-	case 3: {
-		dia_vuelta = 2;
-		break;
-	}
-	}
-	
-	paciente->get_ficha()->set_fechaProxSesion(paciente->get_ficha()->get_fechaUltimaSesion()+dia_vuelta*dia);
+	paciente->get_ficha()->
 	//calculo la dosis max del paciente
 	paciente->get_ficha()->set_dosisMax(calcular_dosisMax(paciente));
 	
