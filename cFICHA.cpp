@@ -98,6 +98,28 @@ cONCOLOGO* cFICHA::get_oncologo(){
 	return this->oncologo;
 }
 
+void cFICHA::acomodar_fechas()
+{
+	this->fechaUltimaSesion = time(NULL);
+	unsigned int dia_vuelta;
+	switch (this->frecuenciaSemanal) {
+	case 1: {
+		dia_vuelta = 7;
+		break;
+	}
+	case 2: {
+		dia_vuelta = 3;
+		break;
+	}
+	case 3: {
+		dia_vuelta = 2;
+		break;
+	}
+	}
+	this->fechaProxSesion = time(NULL) + dia_vuelta * dia;
+	return;
+}
+
 ostream& operator<<(ostream& out, cFICHA& ficha) {
 	out << ficha.to_string();
 	return out;

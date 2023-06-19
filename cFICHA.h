@@ -3,6 +3,7 @@
 #include "cTUMOR.h"
 #include "excepciones.h"
 #include <vector>
+#define dia 86400
 #ifndef _cFICHA_H
 #define _FICHA_H
 
@@ -28,6 +29,7 @@ public:
 	string to_string();
 	cONCOLOGO* get_oncologo();
 	friend ostream& operator<<(ostream& out, cFICHA& ficha);
+	void acomodar_fechas();
 
 private:
 

@@ -1,5 +1,5 @@
 #include "cONCOLOGO.h"
-#define dia 86400
+
 cONCOLOGO::cONCOLOGO(string nombre, string dni) :cMEDICO(nombre, dni) {
 
 }
