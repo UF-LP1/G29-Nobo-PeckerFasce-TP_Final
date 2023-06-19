@@ -152,37 +152,37 @@ void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
 		int hazExt = rand() % 2;
 		//como el haz externo trata todos los tumores primero veo si lo trato con esto y sino le pongo el tratamiento especifico para el tipo de tumor del paciente 
 		if (hazExt == 1 || aux == pulmon || aux == intestino) {
-			tratamiento = new cHAZEXTERNO();
+			tratamiento = new cHAZEXTERNO(paciente->get_ficha()->get_tumores()[i].get_tamanio());
 			
 		}
 		else {
 			switch (aux) {
 			case cabeza: {
-				tratamiento = new cBRAQUITERAPIA();
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
 				break;
 			}
 			case cuello: {
-				tratamiento = new cBRAQUITERAPIA();
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
 				break;
 			}
 			case mama: {
-				tratamiento = new cBRAQUITERAPIA();
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
 				break;
 			}
 			case utero: {
-				tratamiento = new cBRAQUITERAPIA();
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
 				break;
 			}
 			case ojo: {
-				tratamiento = new cBRAQUITERAPIA();
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
 				break;
 			}
 			case tiroides: {
-				tratamiento = new cSISTEMICA();
+				tratamiento = new cSISTEMICA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
 				break;
 			}
 			case prostata: {
-				tratamiento = new cSISTEMICA();
+				tratamiento = new cSISTEMICA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
 				break;
 			}
 			}

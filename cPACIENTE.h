@@ -3,6 +3,7 @@
 #include "eTipoSangre.h"
 #include "cFICHA.h"
 #include "cDOSIMETRISTA.h"
+#include "cONCOLOGO.h"
 #ifndef _cPACIENTE_H
 #define _cPACIENTE_H
 
@@ -35,7 +36,6 @@ public:
     string get_telefono();
     string get_nombre();
     string get_dni();
-    string to_string();
     friend ostream& operator<<(ostream& out, cPACIENTE& paciente);
     bool operator==(cONCOLOGO& miOncologo);
 

@@ -24,14 +24,20 @@ list <cPACIENTE*> cHOSPITAL::buscar_por_tratamiento_y_tumor(eRadioterapia tratam
 list <cPACIENTE*> cHOSPITAL::buscar_por_menos_del_5porciento() {
 	list<cPACIENTE*>::iterator it = this->pacientes.begin();
 	list<cPACIENTE*> aux;
+	float porcentaje = 0;
 
 	for (it; it != this->pacientes.end(); it++) {
 		for (int i = 0; i < (*it)->get_ficha()->get_tumores().size(); i++) {
-			if ((*it)->get_ficha()->get_tumores()[i].get_dosisMaxTumor() != 0) {
-				float porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / (*it)->get_ficha()->get_tumores()[i].get_dosisMaxTumor());
-				if (porcentaje>95)
-					aux.push_back((*it));
-			}
+			if (dynamic_cast<cBRAQUITERAPIA*>((*it)->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr) 
+				 porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / cBRAQUITERAPIA::dosisMaxTumor);
+			else if (dynamic_cast<cHAZEXTERNO*>((*it)->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr)
+				porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / cHAZEXTERNO::dosisMaxTumor);
+			else if (dynamic_cast<cSISTEMICA*>((*it)->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr)
+				porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / cSISTEMICA::dosisMaxTumor);
+	
+			if (porcentaje>95)				
+				aux.push_back((*it));
+		
 		}
 	}
 	return aux;
