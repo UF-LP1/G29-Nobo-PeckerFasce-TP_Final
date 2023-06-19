@@ -3,8 +3,7 @@
 #ifndef _cONCOLOGO_H
 #define _cONCOLOGO_H
 
-#include "cPACIENTE.h"
-
+#include "cMEDICO.h"
 
 class cONCOLOGO :
     public cMEDICO

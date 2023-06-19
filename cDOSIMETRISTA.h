@@ -1,5 +1,5 @@
 #pragma once
-#include "cMEDICO.h"
+
 #include "cFICHA.h"
 
 #ifndef _cDOSIMETRISTA_H

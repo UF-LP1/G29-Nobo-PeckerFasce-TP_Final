@@ -1,6 +1,6 @@
 #include "cSISTEMICA.h"
 unsigned int cSISTEMICA::dosisMaxPaciente = 100;
-unsigned int cSISTEMICA::dosisMaxPaciente = 60;
+unsigned int cSISTEMICA::dosisMaxTumor = 60;
 cSISTEMICA::cSISTEMICA(eTamanioTumor tamanio) :cRADIOTERAPIA(sistemica, tamanio) {
 
 }
@@ -31,7 +31,7 @@ unsigned int cSISTEMICA::ajustar_dosis(eTamanioTumor tamanio) {
 
 string cSISTEMICA::to_string() {
 	stringstream ss;
-	ss << "Terapia sistemica con dosis maxima de " << cSISTEMICA::dosisMax << ". El tratamiento consta de " << this->frecuenciaSemanalPorTumor << " sesiones por semana, con una dosis de " << this->dosisPorSesion << " en cada una.";
+	ss << "Terapia sistemica con dosis maxima de " << cSISTEMICA::dosisMaxTumor << ". El tratamiento consta de " << this->frecuenciaSemanalPorTumor << " sesiones por semana, con una dosis de " << this->dosisPorSesion << " en cada una.";
 	return ss.str();
 }
 

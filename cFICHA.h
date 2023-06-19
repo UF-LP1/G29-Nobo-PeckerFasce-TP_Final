@@ -1,6 +1,5 @@
 #pragma once
 #include "cONCOLOGO.h"
-#include "cTUMOR.h"
 #include "excepciones.h"
 #include <vector>
 #define dia 86400
@@ -19,13 +18,13 @@ public:
 	void set_fechaProxSesion(time_t fechaProxSesion);
 	void set_fechaUltimaSesion(time_t fechaUltimaSesion);
 	void set_frecuenciaSemanal(unsigned int frecuenciaSemanal);
-	void set_tumores(vector<cTUMOR> tumores);
+	void set_tumores(vector<cTUMOR*> tumores);
 	unsigned int get_dosisAcumTotal();
 	unsigned int get_dosisMax();
 	unsigned int get_frecuenciaSemanal();
 	time_t get_fechaUltimaSesion();
 	time_t get_fechaProxSesion();
-	vector <cTUMOR> get_tumores();
+	vector <cTUMOR*> get_tumores();
 	string to_string();
 	cONCOLOGO* get_oncologo();
 	friend ostream& operator<<(ostream& out, cFICHA& ficha);
@@ -38,7 +37,7 @@ private:
 	time_t fechaUltimaSesion;
 	time_t fechaProxSesion;
 	unsigned int frecuenciaSemanal;
-	vector < cTUMOR > tumores;
+	vector < cTUMOR* > tumores;
 	cONCOLOGO* oncologo;
 
 };

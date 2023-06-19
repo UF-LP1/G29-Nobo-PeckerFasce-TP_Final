@@ -15,8 +15,8 @@ void cDOSIMETRISTA::generar_dosis(cPACIENTE *paciente) {
 	for (int i = 0; i < paciente->get_ficha()->get_tumores().size();i++)
 	{
 		unsigned int dosis;
-		dosis = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->ajustar_dosis(paciente->get_ficha()->get_tumores()[i].get_tamanio());
-		paciente->get_ficha()->get_tumores()[i].get_tratamiento()->set_dosisPorSesion(dosis);
+		dosis = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->ajustar_dosis(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
+		paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->set_dosisPorSesion(dosis);
 	}
 
 	return;

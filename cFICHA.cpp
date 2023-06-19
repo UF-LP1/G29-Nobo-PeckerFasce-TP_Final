@@ -9,8 +9,11 @@ cFICHA::cFICHA(cONCOLOGO* oncologo):oncologo(oncologo) {
 }
 
 cFICHA::~cFICHA() {
-
+	for (int i = 0; i < this->tumores.size(); i++) {
+		delete[] this->tumores[i];
+	}
 }
+
 
 void cFICHA::set_dosisAcumTotal(unsigned int dosisAcumTotal) {
 	//CUANDO CALCULE LA DOSIS ACUM TOTAL 
@@ -40,7 +43,7 @@ void cFICHA::set_frecuenciaSemanal(unsigned int frecuenciaSemanal) {
 	return;
 }
 
-void cFICHA::set_tumores(vector<cTUMOR> tumores) {
+void cFICHA::set_tumores(vector<cTUMOR*> tumores) {
 	this->tumores = tumores;
 }
 
@@ -61,7 +64,7 @@ time_t cFICHA::get_fechaUltimaSesion() {
 	return this->fechaUltimaSesion;
 }
 
-vector <cTUMOR> cFICHA::get_tumores() {
+vector <cTUMOR*> cFICHA::get_tumores() {
 	return this->tumores;
 }
 
@@ -85,11 +88,15 @@ string cFICHA::to_string() {
 	{
 		float porcentaje = (float)(this->dosisAcumTotal * 100 / this->dosisMax);
 		for (int i = 0; i < this->tumores.size();i++) {
-			string aux= this->tumores[i].to_string();
+			string aux= this->tumores[i]->to_string();
 			ssaux <<'\t' << "Tumor " << i + 1 << ": " << aux << endl;
 		}
 		ss << "Oncologo a cargo: " << this->oncologo->get_nombre() << endl;
-		ss << "La dosis maxima del pacinete es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. "<<endl<<"La ultima sesion fue el dia " << ctime(&(this->fechaUltimaSesion)) << ". La proxima sesion sera el dia " << ctime(&(this->fechaProxSesion)) << "." <<endl<<"Diagnostico: "<< ssaux.str() << endl;
+		char* fechaUltAux[10];
+		ctime_s(*fechaUltAux, 10,&(this->fechaUltimaSesion));
+		char* fechaProxAux[10]; 
+		ctime_s(*fechaUltAux,10,&(this->fechaProxSesion));
+		ss << "La dosis maxima del pacinete es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. "<<endl<<"La ultima sesion fue el dia " << fechaUltAux << ". La proxima sesion sera el dia " << fechaProxAux << "." <<endl<<"Diagnostico: "<< ssaux.str() << endl;
 	}
 	return ss.str();
 }

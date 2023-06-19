@@ -29,9 +29,9 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 	for (int i = 0; i < tamanio; i++) {
 		
 		//segun el tipo de tratamiento del tumor me guardo las dosis correspondientes
-		if (dynamic_cast<cBRAQUITERAPIA*>(paciente->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr) {
-			nuevadosisT = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion()+paciente->get_ficha()->get_tumores()[i].get_dosisAcumTumor();
-			nuevadosisP = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion()* 0.6 + paciente->get_ficha()->get_dosisAcumTotal();
+		if (dynamic_cast<cBRAQUITERAPIA*>(paciente->get_ficha()->get_tumores()[i]->get_tratamiento()) != nullptr) {
+			nuevadosisT = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion()+paciente->get_ficha()->get_tumores()[i]->get_dosisAcumTumor();
+			nuevadosisP = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion()* 0.6 + paciente->get_ficha()->get_dosisAcumTotal();
 			if (nuevadosisT  > cBRAQUITERAPIA::dosisMaxTumor) { //si la dosis nueva supera la maxima del tumor
 				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); //elimino el tumor de la lista para que no siga siendo tratado
 				flagtumor = true;
@@ -41,9 +41,9 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 				pasar_lista_espera(paciente); //si el paciente ya alcanzo su dosis de radiacion maxima lo paso a lista de espera
 				return; //me voy de la funcion porque nova a continuar su tratamiento por ahora
 			}
-		}else if (dynamic_cast<cHAZEXTERNO*>(paciente->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr){
-			nuevadosisT = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion() + paciente->get_ficha()->get_tumores()[i].get_dosisAcumTumor();
-			nuevadosisP = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion() * 0.3 + paciente->get_ficha()->get_dosisAcumTotal();
+		}else if (dynamic_cast<cHAZEXTERNO*>(paciente->get_ficha()->get_tumores()[i]->get_tratamiento()) != nullptr){
+			nuevadosisT = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion() + paciente->get_ficha()->get_tumores()[i]->get_dosisAcumTumor();
+			nuevadosisP = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion() * 0.3 + paciente->get_ficha()->get_dosisAcumTotal();
 			if (nuevadosisT > cHAZEXTERNO::dosisMaxTumor) {
 				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); 
 				flagtumor = true;
@@ -54,9 +54,9 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 				return;
 			}
 		}
-		else if (dynamic_cast<cSISTEMICA*>(paciente->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr) {
-			nuevadosisT = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion() + paciente->get_ficha()->get_tumores()[i].get_dosisAcumTumor();
-			nuevadosisP = paciente->get_ficha()->get_tumores()[i].get_tratamiento()->get_dosisPorSesion() * 0.1 + paciente->get_ficha()->get_dosisAcumTotal();
+		else if (dynamic_cast<cSISTEMICA*>(paciente->get_ficha()->get_tumores()[i]->get_tratamiento()) != nullptr) {
+			nuevadosisT = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion() + paciente->get_ficha()->get_tumores()[i]->get_dosisAcumTumor();
+			nuevadosisP = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion() * 0.1 + paciente->get_ficha()->get_dosisAcumTotal();
 			if (nuevadosisT > cHAZEXTERNO::dosisMaxTumor) {
 				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); 
 				flagtumor = true;
@@ -69,7 +69,7 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 		}
 
 		if (!flagtumor) { //si no alcanzo la max total ni la max del tumor
-			paciente->get_ficha()->get_tumores()[i].set_dosisAcumTumor(nuevadosisT);
+			paciente->get_ficha()->get_tumores()[i]->set_dosisAcumTumor(nuevadosisT);
 			paciente->get_ficha()->set_dosisAcumTotal(nuevadosisP);
 		}	
 	}
@@ -98,7 +98,7 @@ void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA* dosimetr
 
 void cONCOLOGO::generar_diagnostico(cPACIENTE* paciente) {
 	srand(time(NULL));
-	unsigned int cantTumores = rand() % 4+1;
+	int cantTumores = rand() % 4+1;
 	vector<eTipoTumor> tipos_tumores;
 	for (int i = 0; i < cantTumores; i++) {
 		do {
@@ -106,16 +106,15 @@ void cONCOLOGO::generar_diagnostico(cPACIENTE* paciente) {
 		} while ((paciente->get_sexo() == 'f' && tipos_tumores[i] == prostata) || (paciente->get_sexo() == 'm' && (tipos_tumores[i] == mama || tipos_tumores[i] == utero)));
 	}
 
-	vector<cTUMOR> tumores;
+	vector<cTUMOR*> tumores;
 	for (int j = 0; j < cantTumores; j++)
 	{
-		cTUMOR aux(tipos_tumores[j]);
+		cTUMOR* aux=new cTUMOR(tipos_tumores[j]);
 		tumores.push_back(aux);
-		tumores[j].set_tamanio(eTamanioTumor(rand() % 3));
+		tumores[j]->set_tamanio(eTamanioTumor(rand() % 3));
 	}
-	cFICHA* fichaaux = paciente->get_ficha();
-	fichaaux->set_tumores(tumores);
-	paciente->set_ficha(fichaaux);
+	paciente->get_ficha()->set_tumores(tumores);
+	
 	return;
 }
 
@@ -131,7 +130,7 @@ unsigned int cONCOLOGO::calcular_dosisMax(cPACIENTE* paciente)
 	hayHE = haySIS = hayBRAQ = false;
 	unsigned int max;
 	for (int i = 0; i < paciente->get_ficha()->get_tumores().size(); i++) {
-		cRADIOTERAPIA* aux=paciente->get_ficha()->get_tumores()[i].get_tratamiento();
+		cRADIOTERAPIA* aux=paciente->get_ficha()->get_tumores()[i]->get_tratamiento();
 		if (dynamic_cast<cBRAQUITERAPIA*>(aux) != nullptr)
 			hayBRAQ = true;
 		else if (dynamic_cast<cSISTEMICA*>(aux) != nullptr)
@@ -153,48 +152,48 @@ void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
 	for (int i = 0; i < paciente->get_ficha()->get_tumores().size(); i++) {
 		
 		cRADIOTERAPIA* tratamiento;
-		eTipoTumor aux = paciente->get_ficha()->get_tumores()[i].tipo;
+		eTipoTumor aux = paciente->get_ficha()->get_tumores()[i]->tipo;
 		srand(time(NULL));
 		int hazExt = rand() % 2;
 		//como el haz externo trata todos los tumores primero veo si lo trato con esto y sino le pongo el tratamiento especifico para el tipo de tumor del paciente 
 		if (hazExt == 1 || aux == pulmon || aux == intestino) {
-			tratamiento = new cHAZEXTERNO(paciente->get_ficha()->get_tumores()[i].get_tamanio());
+			tratamiento = new cHAZEXTERNO(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 			
 		}
 		else {
 			switch (aux) {
 			case cabeza: {
-				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 				break;
 			}
 			case cuello: {
-				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 				break;
 			}
 			case mama: {
-				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 				break;
 			}
 			case utero: {
-				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 				break;
 			}
 			case ojo: {
-				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
+				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 				break;
 			}
 			case tiroides: {
-				tratamiento = new cSISTEMICA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
+				tratamiento = new cSISTEMICA(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 				break;
 			}
 			case prostata: {
-				tratamiento = new cSISTEMICA(paciente->get_ficha()->get_tumores()[i].get_tamanio());
+				tratamiento = new cSISTEMICA(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 				break;
 			}
 			}
 		}
 
-		paciente->get_ficha()->get_tumores()[i].set_tratamiento(tratamiento);
+		paciente->get_ficha()->get_tumores()[i]->set_tratamiento(tratamiento);
 	}
 	return;
 }

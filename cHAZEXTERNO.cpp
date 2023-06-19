@@ -1,6 +1,6 @@
 #include "cHAZEXTERNO.h"
 unsigned int cHAZEXTERNO::dosisMaxPaciente = 100;
-unsigned int cHAZEXTERNO::dosisMaxPaciente = 60;
+unsigned int cHAZEXTERNO::dosisMaxTumor = 60;
 cHAZEXTERNO::cHAZEXTERNO(eTamanioTumor tamanio):cRADIOTERAPIA(hazExterno, tamanio) {
 
 }
@@ -37,6 +37,6 @@ unsigned int cHAZEXTERNO::ajustar_dosis(eTamanioTumor tamanio) {
 
 string cHAZEXTERNO::to_string() {
 	stringstream ss;
-	ss << "Terapia de haz externo con dosis maxima de " << cHAZEXTERNO::dosisMax << ". El tratamiento consta de " << this->frecuenciaSemanalPorTumor << " sesiones por semana, con una dosis de " << this->dosisPorSesion << " en cada una.";
+	ss << "Terapia de haz externo con dosis maxima de " << cHAZEXTERNO::dosisMaxTumor << ". El tratamiento consta de " << this->frecuenciaSemanalPorTumor << " sesiones por semana, con una dosis de " << this->dosisPorSesion << " en cada una.";
 	return ss.str();
 }
