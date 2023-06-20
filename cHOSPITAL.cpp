@@ -14,7 +14,7 @@ list <cPACIENTE*> cHOSPITAL::buscar_por_tratamiento_y_tumor(eRadioterapia tratam
 	
 	for (it; it != this->pacientes.end(); it++) {
 		for (int i = 0; i < (*it)->get_ficha()->get_tumores().size(); i++) {
-			if ((*it)->get_ficha()->get_tumores()[i].get_tratamiento()->tratamiento == tratamiento && (*it)->get_ficha()->get_tumores()[i].tipo == tumor)
+			if ((*it)->get_ficha()->get_tumores()[i]->get_tratamiento()->tratamiento == tratamiento && (*it)->get_ficha()->get_tumores()[i]->tipo == tumor)
 				aux.push_back((*it));
 		}
 	}
@@ -28,12 +28,12 @@ list <cPACIENTE*> cHOSPITAL::buscar_por_menos_del_5porciento() {
 
 	for (it; it != this->pacientes.end(); it++) {
 		for (int i = 0; i < (*it)->get_ficha()->get_tumores().size(); i++) {
-			if (dynamic_cast<cBRAQUITERAPIA*>((*it)->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr) 
-				 porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / cBRAQUITERAPIA::dosisMaxTumor);
-			else if (dynamic_cast<cHAZEXTERNO*>((*it)->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr)
-				porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / cHAZEXTERNO::dosisMaxTumor);
-			else if (dynamic_cast<cSISTEMICA*>((*it)->get_ficha()->get_tumores()[i].get_tratamiento()) != nullptr)
-				porcentaje = (float)((*it)->get_ficha()->get_tumores()[i].get_dosisAcumTumor() * 100 / cSISTEMICA::dosisMaxTumor);
+			if (dynamic_cast<cBRAQUITERAPIA*>((*it)->get_ficha()->get_tumores()[i]->get_tratamiento()) != nullptr) 
+				 porcentaje = (float)((*it)->get_ficha()->get_tumores()[i]->get_dosisAcumTumor() * 100 / cBRAQUITERAPIA::dosisMaxTumor);
+			else if (dynamic_cast<cHAZEXTERNO*>((*it)->get_ficha()->get_tumores()[i]->get_tratamiento()) != nullptr)
+				porcentaje = (float)((*it)->get_ficha()->get_tumores()[i]->get_dosisAcumTumor() * 100 / cHAZEXTERNO::dosisMaxTumor);
+			else if (dynamic_cast<cSISTEMICA*>((*it)->get_ficha()->get_tumores()[i]->get_tratamiento()) != nullptr)
+				porcentaje = (float)((*it)->get_ficha()->get_tumores()[i]->get_dosisAcumTumor() * 100 / cSISTEMICA::dosisMaxTumor);
 	
 			if (porcentaje>95)				
 				aux.push_back((*it));

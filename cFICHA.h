@@ -11,6 +11,7 @@
 #include "cHAZEXTERNO.h"
 #include "cSISTEMICA.h"
 #include "cONCOLOGO.h"
+#include "cTUMOR.h"
 #include "cDOSIMETRISTA.h"
 #include "excepciones.h"
 #include <vector>
