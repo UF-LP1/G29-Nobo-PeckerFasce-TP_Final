@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="archivos.h" />
     <ClInclude Include="cBRAQUITERAPIA.h" />
     <ClInclude Include="cDOSIMETRISTA.h" />
     <ClInclude Include="cFICHA.h" />
@@ -144,6 +145,7 @@
     <ClInclude Include="excepciones.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="archivos.cpp" />
     <ClCompile Include="cBRAQUITERAPIA.cpp" />
     <ClCompile Include="cDOSIMETRISTA.cpp" />
     <ClCompile Include="cFICHA.cpp" />
