@@ -55,7 +55,6 @@ unsigned int cFICHA::get_dosisMax() {
 	return this->dosisMax;
 }
 
-
 unsigned int cFICHA::get_frecuenciaSemanal() {
 	return this->frecuenciaSemanal;
 }

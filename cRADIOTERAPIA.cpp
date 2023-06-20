@@ -1,8 +1,8 @@
 #include "cRADIOTERAPIA.h"
 
 cRADIOTERAPIA::cRADIOTERAPIA(eRadioterapia tratamiento, eTamanioTumor tamanio):tratamiento(tratamiento) {
-	
 	this->frecuenciaSemanalPorTumor = 0;
+	this->dosisPorSesion = 0;
 }
 
 cRADIOTERAPIA::~cRADIOTERAPIA() {

@@ -4,13 +4,15 @@
 
 cTUMOR::cTUMOR(eTipoTumor tipo):tipo(tipo)
 {
+	cRADIOTERAPIA* aux = new cSISTEMICA(pequenio);//dummy
+	this->tratamiento = aux;
 	this->dosisAcumTumor = 0;
 	this->tamanio = eTamanioTumor (0);//por defecto pero despues hago set
 }
 
 cTUMOR::~cTUMOR()
 {
-	delete[]this->tratamiento;
+	delete this->tratamiento;
 }
 
 void cTUMOR::set_tamanio(eTamanioTumor tamanio)
