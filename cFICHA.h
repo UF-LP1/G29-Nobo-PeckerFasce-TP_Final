@@ -1,7 +1,9 @@
 #pragma once
 #include "cONCOLOGO.h"
+#include "cDOSIMETRISTA.h"
 #include "excepciones.h"
 #include <vector>
+
 #define dia 86400
 #ifndef _cFICHA_H
 #define _FICHA_H

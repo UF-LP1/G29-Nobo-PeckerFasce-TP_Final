@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef _cMEDICO_H
-#define _cMEDICO_H
-
 #include <iostream>
 #include <string>
 #include <vector>
@@ -13,8 +10,10 @@
 #include "cBRAQUITERAPIA.h"
 #include "cHAZEXTERNO.h"
 #include "cSISTEMICA.h"
-#include "cPACIENTE.h"
 #include "cTUMOR.h"
+
+#ifndef _cMEDICO_H
+#define _cMEDICO_H
 
 using namespace std;
 

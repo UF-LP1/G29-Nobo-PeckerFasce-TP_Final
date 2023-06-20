@@ -2,8 +2,7 @@
 
 #include "eTipoSangre.h"
 #include "cFICHA.h"
-#include "cDOSIMETRISTA.h"
-#include "cONCOLOGO.h"
+
 #ifndef _cPACIENTE_H
 #define _cPACIENTE_H
 

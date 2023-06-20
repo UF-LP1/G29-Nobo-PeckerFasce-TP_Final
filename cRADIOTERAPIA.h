@@ -1,12 +1,12 @@
 #pragma once
-
-#ifndef _cRADIOTERAPIA_H
-#define _cRADIOTERAPIA_H
-
 #include "eTipoTumor.h"
 #include <string>
 #include <sstream>
 using namespace std;
+
+#ifndef _cRADIOTERAPIA_H
+#define _cRADIOTERAPIA_H
+
 class cRADIOTERAPIA
 {
 protected:

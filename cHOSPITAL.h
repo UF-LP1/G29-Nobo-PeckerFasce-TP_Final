@@ -1,8 +1,9 @@
 #pragma once
 
+#include "cPACIENTE.h"
+
 #ifndef _cHOSPITAL_H
 #define _cHOSPITAL_H
-#include "cPACIENTE.h"
 
 class cHOSPITAL
 {

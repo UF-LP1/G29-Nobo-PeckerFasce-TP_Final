@@ -1,17 +1,24 @@
 #pragma once
+#include "cPACIENTE.h"
 
 #ifndef _cONCOLOGO_H
 #define _cONCOLOGO_H
 
-#include "cMEDICO.h"
 
-class cONCOLOGO :
-    public cMEDICO
+class cONCOLOGO
 {
+    const string nombre;
+    const string dni;
+    string telefono;
+
 public:
     cONCOLOGO(string nombre, string dni);
     ~cONCOLOGO();
 
+    void set_telefono(string telefono);
+    string get_telefono();
+    string get_nombre();
+    string get_dni();
     void pasar_lista_espera(cPACIENTE* paciente);
     void sacar_lista_espera(cPACIENTE* paciente, cDOSIMETRISTA* dosimetrista);
     void atender_paciente(cPACIENTE* paciente);
@@ -21,6 +28,7 @@ public:
     unsigned int generar_frecuenciaSemanal(cPACIENTE*paciente);
     string to_string();
     unsigned int calcular_dosisMax(cPACIENTE* paciente);
+    friend ostream& operator<<(ostream& out, cONCOLOGO& oncologo);
 };
 
 #endif
