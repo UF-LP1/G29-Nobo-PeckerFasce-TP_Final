@@ -43,3 +43,10 @@ public:
 		return "La dosis maxima de este paciente fue alcanzada";
 	}
 };
+
+class exArchivoNoExistente :public exception {
+public:
+	const char* what()const throw() {
+		return "El archivo que se intenta abrir es inexistente";
+	}
+};
