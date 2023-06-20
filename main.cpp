@@ -6,7 +6,7 @@ string BASE_PATH = "..//..//..//";
 int main() {
 
 	cHOSPITAL* hospital = new cHOSPITAL("NoboPecker", "micasa");
-	string archivo = (BASE_PATH +"..//MOCK_DATA.csv");
+	string archivo = ("MOCK_DATA.csv");
 	
 	try {
 		leerArchivo(archivo,hospital->get_pacientes());

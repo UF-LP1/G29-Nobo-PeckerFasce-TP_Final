@@ -158,6 +158,9 @@
     <ClCompile Include="cTUMOR.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Desktop\Facu\2do\LABO PROG I\MOCK_DATA.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

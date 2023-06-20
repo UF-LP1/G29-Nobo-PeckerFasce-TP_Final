@@ -8,16 +8,17 @@ ifstream leerArchivo(string nombre_archivo, list<cPACIENTE*> lista_pacientes)
 		throw exArchivoNoExistente();
 
 	string nombre, dni, telefono, tipo_sangre, dummy;
-	char sexo;
+	char sexo, coma;
 	float salud;
-	eTipoSangre tipo;
+	eTipoSangre tipo=eTipoSangre(0);
 	bool espera;
 
 	int i = 0;
 	fp >> dummy;
 
 	while (!fp.eof()) {
-		fp >> nombre >> dummy >> dni >> dummy >> tipo_sangre >> dummy >> sexo >> dummy >> salud >> dummy >> espera >> dummy >> telefono;
+
+		fp >> nombre >> coma >> dni >> coma >> tipo_sangre >> coma >> sexo >> coma >> salud >> coma >> espera >> coma >> telefono;
 		try {
 			tipo = leerSangre(tipo_sangre);
 		}
