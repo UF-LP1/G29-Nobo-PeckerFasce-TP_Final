@@ -50,3 +50,10 @@ public:
 		return "El archivo que se intenta abrir es inexistente";
 	}
 };
+
+class exSangreInexistente :public exception {
+public:
+	const char* what()const throw() {
+		return "Tipo de sangre invalido";
+	}
+};
