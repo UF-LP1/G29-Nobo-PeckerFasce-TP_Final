@@ -1,11 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-#include <vector>
-#include <list>
-#include <sstream>
-#include <ctime>
 
 #include "cBRAQUITERAPIA.h"
 #include "cHAZEXTERNO.h"
