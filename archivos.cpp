@@ -6,36 +6,29 @@ ifstream leerArchivo(string nombre_archivo, list<cPACIENTE*> lista_pacientes)
 	fp.open(nombre_archivo, ios::in);
 	if (!(fp.is_open()))
 		throw exArchivoNoExistente();
-	/*
-		const string nombre;
-		const string dni;
-		string telefono;
-		const eTipoSangre tipoSangre;
-		const char sexo;
-		float salud;
-		bool enEspera;
-	*/
 
 	string nombre, dni, telefono, tipo_sangre, dummy;
 	char sexo;
 	float salud;
-	int en_espera;
 	eTipoSangre tipo;
-
-	//DESP PASO TIPO_SANGRE Y EN_ESPERA
+	bool espera;
 
 	int i = 0;
 	fp >> dummy;
-	while (!fp.eof()) {
-		fp >> nombre >> dummy >> dni >> dummy >> tipo_sangre >> dummy >> sexo >> dummy >> salud >> dummy >> en_espera >> dummy >> telefono;
-		tipo = leerSangre(tipo_sangre);
 
+	while (!fp.eof()) {
+		fp >> nombre >> dummy >> dni >> dummy >> tipo_sangre >> dummy >> sexo >> dummy >> salud >> dummy >> espera >> dummy >> telefono;
+		tipo = leerSangre(tipo_sangre);
 		cPACIENTE* aux = new cPACIENTE(nombre, dni, tipo, sexo);
+		aux->set_enEspera(espera);
+		aux->set_salud(salud);
+		aux->set_telefono(telefono);
+		lista_pacientes.push_back(aux);
+
+		delete aux;
 	}
 
-
-
-	return ifstream();
+	return fp;
 }
 
 eTipoSangre leerSangre(string tipoSangre)
@@ -63,6 +56,7 @@ eTipoSangre leerSangre(string tipoSangre)
 	return tipo;
 }
 
+/*
 bool leerEnEspera(int enEspera)
 {
 	bool en_espera;
@@ -73,6 +67,7 @@ bool leerEnEspera(int enEspera)
 	else
 		throw exNoEsBool();
 
-	return false;
+	return en_espera;
 }
 
+*/

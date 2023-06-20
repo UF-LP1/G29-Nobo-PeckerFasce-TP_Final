@@ -7,4 +7,4 @@ ifstream leerArchivo(string nombre_archivo, list<cPACIENTE*> lista_pacientes);
 
 eTipoSangre leerSangre(string tipoSangre);
 
-bool leerEnEspera(int enEspera);
+//bool leerEnEspera(int enEspera);
