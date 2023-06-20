@@ -1,6 +1,6 @@
 #include "cFICHA.h"
 
-cFICHA::cFICHA(cONCOLOGO* oncologo):oncologo(oncologo) {
+cFICHA::cFICHA(string oncologo_dni):oncologo_dni(oncologo_dni) {
 	this->dosisAcumTotal = 0;
 	this->dosisMax = 0;
 	this->fechaProxSesion = 0;
@@ -91,7 +91,7 @@ string cFICHA::to_string() {
 			string aux= this->tumores[i]->to_string();
 			ssaux <<'\t' << "Tumor " << i + 1 << ": " << aux << endl;
 		}
-		ss << "Oncologo a cargo: " << this->oncologo->get_nombre() << endl;
+		ss << "DNI del oncologo a cargo: " << this->oncologo_dni << endl;
 		char* fechaUltAux[10];
 		ctime_s(*fechaUltAux, 10,&(this->fechaUltimaSesion));
 		char* fechaProxAux[10]; 
@@ -101,8 +101,8 @@ string cFICHA::to_string() {
 	return ss.str();
 }
 
-cONCOLOGO* cFICHA::get_oncologo(){
-	return this->oncologo;
+string cFICHA::get_oncologo_dni(){
+	return this->oncologo_dni;
 }
 
 void cFICHA::acomodar_fechas()

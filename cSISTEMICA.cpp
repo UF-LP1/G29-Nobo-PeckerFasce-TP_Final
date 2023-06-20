@@ -2,7 +2,7 @@
 unsigned int cSISTEMICA::dosisMaxPaciente = 100;
 unsigned int cSISTEMICA::dosisMaxTumor = 60;
 cSISTEMICA::cSISTEMICA(eTamanioTumor tamanio) :cRADIOTERAPIA(sistemica, tamanio) {
-
+	this->dosisPorSesion = ajustar_dosis(tamanio);
 }
 
 cSISTEMICA::~cSISTEMICA() {

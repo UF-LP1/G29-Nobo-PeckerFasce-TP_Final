@@ -3,6 +3,7 @@
 #include "eTipoTumor.h"
 #include "cFICHA.h"
 
+
 #ifndef _cPACIENTE_H
 #define _cPACIENTE_H
 
@@ -36,7 +37,7 @@ public:
     string get_nombre();
     string get_dni();
     friend ostream& operator<<(ostream& out, cPACIENTE& paciente);
-    bool operator==(cONCOLOGO& miOncologo);
+    bool operator==(string oncologo_dni);
 
 
 };

@@ -92,7 +92,7 @@ string cPACIENTE::to_string() {
 	 return out;
 }
 
- bool cPACIENTE:: operator==(cONCOLOGO& miOncologo) {
-	 return (this->ficha->get_oncologo()->get_dni()== miOncologo.get_dni());
+ bool cPACIENTE:: operator==(string oncologo_dni) {
+	 return (this->ficha->get_oncologo_dni()== oncologo_dni);
 
  }

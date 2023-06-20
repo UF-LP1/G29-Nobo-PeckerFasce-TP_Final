@@ -2,7 +2,7 @@
 unsigned int cHAZEXTERNO::dosisMaxPaciente = 100;
 unsigned int cHAZEXTERNO::dosisMaxTumor = 60;
 cHAZEXTERNO::cHAZEXTERNO(eTamanioTumor tamanio):cRADIOTERAPIA(hazExterno, tamanio) {
-
+	this->dosisPorSesion = ajustar_dosis(tamanio);
 }
 
 cHAZEXTERNO::~cHAZEXTERNO() {

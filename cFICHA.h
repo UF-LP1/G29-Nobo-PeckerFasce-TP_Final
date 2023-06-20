@@ -7,12 +7,7 @@
 #include <sstream>
 #include <ctime>
 
-#include "cBRAQUITERAPIA.h"
-#include "cHAZEXTERNO.h"
-#include "cSISTEMICA.h"
-#include "cONCOLOGO.h"
 #include "cTUMOR.h"
-#include "cDOSIMETRISTA.h"
 #include "excepciones.h"
 #include <vector>
 
@@ -24,7 +19,7 @@ class cFICHA
 {
 public:
 
-	cFICHA(cONCOLOGO* oncologo);
+	cFICHA(string oncologo_dni);
 	~cFICHA();
 
 	void set_dosisAcumTotal(unsigned int dosisAcumTotal);
@@ -40,7 +35,7 @@ public:
 	time_t get_fechaProxSesion();
 	vector <cTUMOR*> get_tumores();
 	string to_string();
-	cONCOLOGO* get_oncologo();
+	string get_oncologo_dni();
 	friend ostream& operator<<(ostream& out, cFICHA& ficha);
 	void acomodar_fechas();
 
@@ -52,7 +47,7 @@ private:
 	time_t fechaProxSesion;
 	unsigned int frecuenciaSemanal;
 	vector < cTUMOR* > tumores;
-	cONCOLOGO* oncologo;
+	string oncologo_dni;
 
 };
 

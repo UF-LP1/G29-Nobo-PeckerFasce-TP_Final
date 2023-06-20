@@ -3,7 +3,7 @@ unsigned int cBRAQUITERAPIA::dosisMaxPaciente = 180;
 unsigned int cBRAQUITERAPIA::dosisMaxTumor = 150;
 
 cBRAQUITERAPIA::cBRAQUITERAPIA(eTamanioTumor tamanio):cRADIOTERAPIA(braquiterapia, tamanio) {
-
+	this->dosisPorSesion = ajustar_dosis(tamanio);
 }
 
 

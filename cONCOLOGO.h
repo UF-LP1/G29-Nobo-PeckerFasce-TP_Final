@@ -1,6 +1,6 @@
 #pragma once
 #include "cPACIENTE.h"
-
+#include "cDOSIMETRISTA.h"
 #ifndef _cONCOLOGO_H
 #define _cONCOLOGO_H
 

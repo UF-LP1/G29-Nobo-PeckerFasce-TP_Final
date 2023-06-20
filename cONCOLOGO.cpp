@@ -171,16 +171,18 @@ void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
 	}
 	for (int i = 0; i < paciente->get_ficha()->get_tumores().size(); i++) {
 		
-		cRADIOTERAPIA* tratamiento;
+		cRADIOTERAPIA* tratamiento=new cSISTEMICA(mediano);
 		eTipoTumor aux = paciente->get_ficha()->get_tumores()[i]->tipo;
 		srand(time(NULL));
 		int hazExt = rand() % 2;
 		//como el haz externo trata todos los tumores primero veo si lo trato con esto y sino le pongo el tratamiento especifico para el tipo de tumor del paciente 
 		if (hazExt == 1 || aux == pulmon || aux == intestino) {
+			delete[]tratamiento;
 			tratamiento = new cHAZEXTERNO(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 			
 		}
 		else {
+			delete[]tratamiento;
 			switch (aux) {
 			case cabeza: {
 				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i]->get_tamanio());

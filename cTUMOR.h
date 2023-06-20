@@ -1,5 +1,7 @@
 #pragma once
-#include "cRADIOTERAPIA.h"
+#include "cSISTEMICA.h"
+#include "cBRAQUITERAPIA.h"
+#include "cHAZEXTERNO.h"
 
 #ifndef _cTUMOR_H
 #define _cTUMOR_H
