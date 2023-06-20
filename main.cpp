@@ -1,7 +1,6 @@
 #include "archivos.h"
 
 using namespace std;
-string BASE_PATH = "..//..//..//";
 
 int main() {
 
@@ -10,10 +9,12 @@ int main() {
 	
 	try {
 		leerArchivo(archivo,hospital->get_pacientes());
+		//no lee bien las cosas y no me deja abrirlo
 	}
 	catch (exArchivoNoExistente& error) {
 		cout << error.what() << endl;
 	}
+
 
 
 
