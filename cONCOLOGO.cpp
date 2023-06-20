@@ -8,6 +8,26 @@ cONCOLOGO::~cONCOLOGO() {
 
 }
 
+void cONCOLOGO::set_telefono(string telefono)
+{
+	this->telefono = telefono;
+}
+
+string cONCOLOGO::get_telefono()
+{
+	return this->telefono;
+}
+
+string cONCOLOGO::get_nombre()
+{
+	return this->nombre;
+}
+
+string cONCOLOGO::get_dni()
+{
+	return this->dni;
+}
+
 void cONCOLOGO::pasar_lista_espera(cPACIENTE* paciente) {
 	paciente->set_enEspera(true);
 	throw exDosisMaxAlcanzadaPaciente();
@@ -211,4 +231,10 @@ unsigned int cONCOLOGO::generar_frecuenciaSemanal(cPACIENTE* paciente)
 		frecuencia=1;
 	}
 	return frecuencia;
+}
+
+ostream& operator<<(ostream& out, cONCOLOGO& oncologo)
+{
+	out << oncologo.to_string();
+	return out;
 }
