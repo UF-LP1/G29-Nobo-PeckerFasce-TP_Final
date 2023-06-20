@@ -57,3 +57,10 @@ public:
 		return "Tipo de sangre invalido";
 	}
 };
+
+class exNoEsBool :public exception {
+public:
+	const char* what() const throw() {
+		return "El dato ingresado no corresponde a un bool";
+	}
+};
