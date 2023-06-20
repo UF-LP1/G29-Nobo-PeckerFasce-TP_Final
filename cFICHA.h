@@ -7,6 +7,9 @@
 #include <sstream>
 #include <ctime>
 
+#include "cBRAQUITERAPIA.h"
+#include "cHAZEXTERNO.h"
+#include "cSISTEMICA.h"
 #include "cONCOLOGO.h"
 #include "cDOSIMETRISTA.h"
 #include "excepciones.h"

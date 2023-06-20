@@ -1,6 +1,6 @@
 #pragma once
 
-#include "eTipoSangre.h"
+#include "eTipoTumor.h"
 #include "cFICHA.h"
 
 #ifndef _cPACIENTE_H

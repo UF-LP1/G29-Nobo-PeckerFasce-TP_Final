@@ -1,5 +1,4 @@
 #pragma once
-#include "cONCOLOGO.h"
 #include "cRADIOTERAPIA.h"
 
 #ifndef _cTUMOR_H
