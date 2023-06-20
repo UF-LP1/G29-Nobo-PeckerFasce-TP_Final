@@ -18,7 +18,12 @@ ifstream leerArchivo(string nombre_archivo, list<cPACIENTE*> lista_pacientes)
 
 	while (!fp.eof()) {
 		fp >> nombre >> dummy >> dni >> dummy >> tipo_sangre >> dummy >> sexo >> dummy >> salud >> dummy >> espera >> dummy >> telefono;
-		tipo = leerSangre(tipo_sangre);
+		try {
+			tipo = leerSangre(tipo_sangre);
+		}
+		catch (exSangreInexistente& error) {
+			cout << error.what()<<endl;
+		}
 		cPACIENTE* aux = new cPACIENTE(nombre, dni, tipo, sexo);
 		aux->set_enEspera(espera);
 		aux->set_salud(salud);
@@ -27,7 +32,7 @@ ifstream leerArchivo(string nombre_archivo, list<cPACIENTE*> lista_pacientes)
 
 		delete aux;
 	}
-
+	fp.close();
 	return fp;
 }
 

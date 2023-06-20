@@ -1,11 +1,19 @@
-#include "cHOSPITAL.h"
+#include "archivos.h"
 
 using namespace std;
 
 int main() {
 
 	cHOSPITAL* hospital = new cHOSPITAL("NoboPecker", "micasa");
-	//leo archivos
+	string archivo = "MOCK_DATA.csv";
+	try {
+
+	leerArchivo(archivo,hospital->get_pacientes());
+	
+	}
+	catch (exArchivoNoExistente& error) {
+		cout << error.what() << endl;
+	}
 
 
 
@@ -14,6 +22,6 @@ int main() {
 
 
 
-	delete[]hospital;
+	delete hospital;
 	return 0;
 }

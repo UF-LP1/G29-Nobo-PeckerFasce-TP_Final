@@ -5,7 +5,16 @@ cHOSPITAL::cHOSPITAL(string nombre, string direccion):nombre(nombre), direccion(
 }
 
 cHOSPITAL::~cHOSPITAL() {
+	for (cPACIENTE* aux : this->pacientes) {
+		if (aux != nullptr) {
+			delete aux;
+		}
+	}
+}
 
+list<cPACIENTE*> cHOSPITAL::get_pacientes()
+{
+	return this->pacientes;
 }
 
 list <cPACIENTE*> cHOSPITAL::buscar_por_tratamiento_y_tumor(eRadioterapia tratamiento, eTipoTumor tumor) {
