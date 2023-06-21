@@ -60,7 +60,7 @@
     <ClInclude Include="excepciones.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="archivos.h">
+    <ClInclude Include="datosRandom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -98,13 +98,5 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="archivos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\Desktop\Facu\2do\LABO PROG I\MOCK_DATA.csv">
-      <Filter>Header Files</Filter>
-    </None>
   </ItemGroup>
 </Project>
