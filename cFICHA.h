@@ -28,6 +28,7 @@ public:
 	void set_fechaUltimaSesion(time_t fechaUltimaSesion);
 	void set_frecuenciaSemanal(unsigned int frecuenciaSemanal);
 	void set_tumores(vector<cTUMOR*> tumores);
+	void set_dniOncologo(string dni_oncologo);
 	unsigned int get_dosisAcumTotal();
 	unsigned int get_dosisMax();
 	unsigned int get_frecuenciaSemanal();

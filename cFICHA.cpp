@@ -47,6 +47,10 @@ void cFICHA::set_tumores(vector<cTUMOR*> tumores) {
 	this->tumores = tumores;
 }
 
+void cFICHA::set_dniOncologo(string dni_oncologo){
+	this->oncologo_dni = dni_oncologo;
+}
+
 unsigned int cFICHA::get_dosisAcumTotal() {
 	return this->dosisAcumTotal;
 }
