@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="archivos.h" />
     <ClInclude Include="cBRAQUITERAPIA.h" />
     <ClInclude Include="cDOSIMETRISTA.h" />
     <ClInclude Include="cFICHA.h" />
@@ -138,6 +137,7 @@
     <ClInclude Include="cRADIOTERAPIA.h" />
     <ClInclude Include="cSISTEMICA.h" />
     <ClInclude Include="cTUMOR.h" />
+    <ClInclude Include="datosRandom.h" />
     <ClInclude Include="eRadioterapia.h" />
     <ClInclude Include="eTamanioTumor.h" />
     <ClInclude Include="eTipoSangre.h" />
@@ -145,7 +145,6 @@
     <ClInclude Include="excepciones.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="archivos.cpp" />
     <ClCompile Include="cBRAQUITERAPIA.cpp" />
     <ClCompile Include="cDOSIMETRISTA.cpp" />
     <ClCompile Include="cFICHA.cpp" />
@@ -157,9 +156,6 @@
     <ClCompile Include="cSISTEMICA.cpp" />
     <ClCompile Include="cTUMOR.cpp" />
     <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\Desktop\Facu\2do\LABO PROG I\MOCK_DATA.csv" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

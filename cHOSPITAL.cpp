@@ -2,6 +2,8 @@
 
 cHOSPITAL::cHOSPITAL(string nombre, string direccion):nombre(nombre), direccion(direccion) {
 	this->pacientes = list<cPACIENTE*>(pacientes.begin(), pacientes.end());
+	this->oncologos = list<cONCOLOGO*>(oncologos.begin(), oncologos.end());
+	this->dosimetristas = list<cDOSIMETRISTA*>(dosimetristas.begin(), dosimetristas.end());
 }
 
 cHOSPITAL::~cHOSPITAL() {
@@ -10,7 +12,20 @@ cHOSPITAL::~cHOSPITAL() {
 			delete aux;
 		}
 	}
+	for (cONCOLOGO* aux : this->oncologos) {
+		if (aux != nullptr) {
+			delete aux;
+
+		}
+	}
+	for (cDOSIMETRISTA* aux : this->dosimetristas) {
+			if (aux != nullptr) {
+				delete aux;
+			}
+		}
 }
+
+
 
 list<cPACIENTE*> cHOSPITAL::get_pacientes()
 {
@@ -117,6 +132,95 @@ void cHOSPITAL::buscar(cPACIENTE* paciente)
 	return;
 }
 
+void cHOSPITAL::operator+(cONCOLOGO* oncologo)
+{
+	try {
+		buscar(oncologo);
+	}
+	catch (exOncologoYaExistente& error) {
+		cout << endl << error.what() << endl;
+		return;
+	}
+
+	this->oncologos.push_back(oncologo);
+	return;
+}
+void cHOSPITAL::operator-(cONCOLOGO* oncologo)
+{
+	try {
+		buscar(oncologo);
+	}
+	catch (exOncologoNoEncontrado& error) {
+		cout << endl << error.what() << endl;
+		return;
+	}
+
+	this->oncologos.remove(oncologo);
+	return;
+}
+
+void cHOSPITAL::buscar(cONCOLOGO* oncologo)
+{
+	list<cONCOLOGO*>::iterator it = this->oncologos.begin();
+	bool flag = false;
+
+	for (it; it != this->oncologos.end(); it++) {
+		if ((*it) == oncologo)
+			flag = true;
+	}
+
+	if (flag)
+		throw exOncologoYaExistente();
+	else
+		throw exOncologoNoEncontrado();
+
+	return;
+}
+
+void cHOSPITAL::operator+(cDOSIMETRISTA* dosimetrista)
+{
+	try {
+		buscar(dosimetrista);
+	}
+	catch (exDosimetristaYaExistente& error) {
+		cout << endl << error.what() << endl;
+		return;
+	}
+
+	this->dosimetristas.push_back(dosimetrista);
+	return;
+}
+void cHOSPITAL::operator-(cDOSIMETRISTA* dosimetrista)
+{
+	try {
+		buscar(dosimetrista);
+	}
+	catch (exDosimetristaNoEncontrado& error) {
+		cout << endl << error.what() << endl;
+		return;
+	}
+
+	this->dosimetristas.remove(dosimetrista);
+	return;
+}
+
+void cHOSPITAL::buscar(cDOSIMETRISTA* dosimetrista)
+{
+	list<cDOSIMETRISTA*>::iterator it = this->dosimetristas.begin();
+	bool flag = false;
+
+	for (it; it != this->dosimetristas.end(); it++) {
+		if ((*it) == dosimetrista)
+			flag = true;
+	}
+
+	if (flag)
+		throw exDosimetristaYaExistente();
+	else
+		throw exOncologoNoEncontrado();
+
+	return;
+}
 ostream& operator<<(ostream& out, cHOSPITAL& hospital)
 {
 	out << hospital.to_string();
