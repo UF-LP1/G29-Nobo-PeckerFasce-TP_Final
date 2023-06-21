@@ -92,3 +92,10 @@ public:
 		return "El dato ingresado no corresponde a un bool";
 	}
 };
+
+class exNoHayPacientesMatch : public exception {
+public:
+	const char* what() const throw() {
+		return "No hay pacientes que cumplan con la descripcion solicitada";
+	}
+};
