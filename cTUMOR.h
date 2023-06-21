@@ -12,7 +12,6 @@ public:
 	cTUMOR(eTipoTumor tipo);
 	~cTUMOR();
 	string to_string();
-	void imprimir();
 	void set_tamanio(eTamanioTumor tamanio);
 	void set_dosisAcumTumor(unsigned int dosisAcumTumor);
 	void set_tratamiento(cRADIOTERAPIA*tratamiento);

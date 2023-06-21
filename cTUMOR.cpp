@@ -58,6 +58,3 @@ string cTUMOR::to_string() {
 
 }
 
-void cTUMOR::imprimir() {
-
-}

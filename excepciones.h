@@ -30,6 +30,34 @@ public:
 	}
 };
 
+class exDosimetristaYaExistente :public exception {
+public:
+	const char* what()const throw() {
+		return "El dosimetrista ya esta en la lista de dosimetristas";
+	}
+};
+
+class exDosimetristaNoEncontrado :public exception {
+public:
+	const char* what()const throw() {
+		return "No se ha encontrado el dosimetrista en la lista de dosimetristas";
+	}
+};
+
+class exOncologoYaExistente :public exception {
+public:
+	const char* what()const throw() {
+		return "El oncologo ya esta en la lista de oncologos";
+	}
+};
+
+class exOncologoNoEncontrado :public exception {
+public:
+	const char* what()const throw() {
+		return "No se ha encontrado el oncologo en la lista de oncologos";
+	}
+};
+
 class exDosisMaxAlcanzadaTumor :public exception {
 public:
 	const char* what()const throw() {
