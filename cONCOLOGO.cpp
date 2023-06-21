@@ -99,6 +99,7 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 }
 
 void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA* dosimetrista) {
+	paciente->get_ficha()->set_dniOncologo(this->dni);
 	//me invento tumores
 	generar_diagnostico(paciente);
 	//me invento tratamientos 
