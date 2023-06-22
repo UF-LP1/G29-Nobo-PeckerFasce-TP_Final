@@ -91,7 +91,7 @@ string cFICHA::to_string() {
 		float porcentaje = (float)(this->dosisAcumTotal * 100 / this->dosisMax);
 		for (int i = 0; i < this->tumores.size();i++) {
 			string aux= this->tumores[i]->to_string();
-			ssaux <<'\t' << "Tumor " << i + 1 << ": " << aux << endl;
+			ssaux <<endl << "Tumor " << i + 1 << ": " << aux << endl;
 		}
 		ss << "DNI del oncologo a cargo: " << this->oncologo_dni << endl;
 		string fechaUltAux = convertir_fecha(this->fechaUltimaSesion);
