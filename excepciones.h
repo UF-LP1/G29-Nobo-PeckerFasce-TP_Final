@@ -9,13 +9,6 @@ public:
 	}
 };
 
-class exNoHayTumores :public exception {
-public:
-	const char* what()const throw() {
-		return "El paciente no ha sido diagnosticado con ninún tumor";
-	}
-};
-
 class exPacienteYaExistente :public exception {
 public:
 	const char* what()const throw() {
