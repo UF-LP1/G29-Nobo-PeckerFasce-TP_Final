@@ -41,8 +41,8 @@ void cONCOLOGO::sacar_lista_espera(cPACIENTE* paciente,cDOSIMETRISTA* dosimetris
 }
 
 void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
-	unsigned int nuevadosisT = 0;
-	unsigned int nuevadosisP = 0;
+	float nuevadosisT = 0;
+	float nuevadosisP = 0;
 	bool flagtumor = false;
 	bool flagalguntumor = false;
 	int tamanio = paciente->get_ficha()->get_tumores().size();
@@ -164,7 +164,7 @@ unsigned int cONCOLOGO::calcular_dosisMax(cPACIENTE* paciente)
 {
 	bool hayHE, haySIS, hayBRAQ;
 	hayHE = haySIS = hayBRAQ = false;
-	unsigned int max;
+	float max;
 	for (int i = 0; i < paciente->get_ficha()->get_tumores().size(); i++) {
 		cRADIOTERAPIA* aux=paciente->get_ficha()->get_tumores()[i]->get_tratamiento();
 		if (dynamic_cast<cBRAQUITERAPIA*>(aux) != nullptr)

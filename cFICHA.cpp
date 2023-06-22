@@ -14,7 +14,7 @@ cFICHA::~cFICHA() {
 	}
 }
 
-void cFICHA::set_dosisAcumTotal(unsigned int dosisAcumTotal) {
+void cFICHA::set_dosisAcumTotal(float dosisAcumTotal) {
 	//CUANDO CALCULE LA DOSIS ACUM TOTAL 
 	//Radiacion_paciente = Tumores_RTPHazExterno * 0.3 + Tumores_Braquiterapia * 0.6 +Tumores_Sistemico * 0.1
 
@@ -22,7 +22,7 @@ void cFICHA::set_dosisAcumTotal(unsigned int dosisAcumTotal) {
 	return;
 }
 
-void cFICHA::set_dosisMax(unsigned int dosisMax) {
+void cFICHA::set_dosisMax(float dosisMax) {
 	this->dosisMax = dosisMax;
 	return;
 }
@@ -50,11 +50,11 @@ void cFICHA::set_dniOncologo(string dni_oncologo){
 	this->oncologo_dni = dni_oncologo;
 }
 
-unsigned int cFICHA::get_dosisAcumTotal() {
+float cFICHA::get_dosisAcumTotal() {
 	return this->dosisAcumTotal;
 }
 
-unsigned int cFICHA::get_dosisMax() {
+float cFICHA::get_dosisMax() {
 	return this->dosisMax;
 }
 
@@ -88,7 +88,7 @@ string cFICHA::to_string() {
 
 	if (this->dosisMax != 0)
 	{
-		float porcentaje = (float)(this->dosisAcumTotal * 100 / this->dosisMax);
+		float porcentaje = (this->dosisAcumTotal * 100 / this->dosisMax);
 		for (int i = 0; i < this->tumores.size();i++) {
 			string aux= this->tumores[i]->to_string();
 			ssaux <<endl << "Tumor " << i + 1 << ": " << aux << endl;

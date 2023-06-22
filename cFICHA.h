@@ -22,15 +22,15 @@ public:
 	cFICHA(string oncologo_dni);
 	~cFICHA();
 
-	void set_dosisAcumTotal(unsigned int dosisAcumTotal);
-	void set_dosisMax(unsigned int dosisMax);
+	void set_dosisAcumTotal(float dosisAcumTotal);
+	void set_dosisMax(float dosisMax);
 	void set_fechaProxSesion(time_t fechaProxSesion);
 	void set_fechaUltimaSesion(time_t fechaUltimaSesion);
 	void set_frecuenciaSemanal(unsigned int frecuenciaSemanal);
 	void set_tumores(vector<cTUMOR*> tumores);
 	void set_dniOncologo(string dni_oncologo);
-	unsigned int get_dosisAcumTotal();
-	unsigned int get_dosisMax();
+	float get_dosisAcumTotal();
+	float get_dosisMax();
 	unsigned int get_frecuenciaSemanal();
 	time_t get_fechaUltimaSesion();
 	time_t get_fechaProxSesion();
@@ -43,8 +43,8 @@ public:
 
 private:
 
-	unsigned int dosisAcumTotal;
-	unsigned int dosisMax;
+	float dosisAcumTotal;
+	float dosisMax;
 	time_t fechaUltimaSesion;
 	time_t fechaProxSesion;
 	unsigned int frecuenciaSemanal;
