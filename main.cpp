@@ -43,9 +43,29 @@ int main() {
 	cout << *paciente2;
 	cout<<*paciente3;
 	//los atiendo asi les curo el cancer que les di <3
-	oncologo1->atender_paciente(paciente1);
-	oncologo2->atender_paciente(paciente2);
-	oncologo2->atender_paciente(paciente3);
+	try {
+		oncologo2->atender_paciente(paciente2);
+		oncologo2->atender_paciente(paciente3);
+	}
+	catch (exDosisMaxAlcanzadaTumor& etumor) {
+		cout << etumor.what() << endl;
+	}
+	catch (exDosisMaxAlcanzadaPaciente& epaciente) {
+		cout << epaciente.what() << endl;
+	}
+	//pruebo hacer el tratamiento entero de un unico paciente para que no sea un loop eterno
+	while (!paciente1->get_enEspera()) {
+		try {
+		oncologo1->atender_paciente(paciente1);
+		}
+		catch (exDosisMaxAlcanzadaTumor& etumor) {
+			cout << etumor.what() << endl;
+		}
+		catch (exDosisMaxAlcanzadaPaciente& epaciente) {
+			cout << epaciente.what() << endl;
+		}
+		cout << *(paciente1->get_ficha());
+	}
 	//a ver como vienen
 	cout <<*(paciente1->get_ficha());
 	cout << *(paciente2->get_ficha());

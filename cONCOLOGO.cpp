@@ -44,18 +44,18 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 	unsigned int nuevadosisT = 0;
 	unsigned int nuevadosisP = 0;
 	bool flagtumor = false;
+	bool flagalguntumor = false;
 	int tamanio = paciente->get_ficha()->get_tumores().size();
 
 	for (int i = 0; i < tamanio; i++) {
-		
+		flagtumor = false;
 		//segun el tipo de tratamiento del tumor me guardo las dosis correspondientes
 		if (dynamic_cast<cBRAQUITERAPIA*>(paciente->get_ficha()->get_tumores()[i]->get_tratamiento()) != nullptr) {
 			nuevadosisT = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion()+paciente->get_ficha()->get_tumores()[i]->get_dosisAcumTumor();
 			nuevadosisP = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion()* 0.6 + paciente->get_ficha()->get_dosisAcumTotal();
 			if (nuevadosisT  > cBRAQUITERAPIA::dosisMaxTumor) { //si la dosis nueva supera la maxima del tumor
-				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); //elimino el tumor de la lista para que no siga siendo tratado
 				flagtumor = true;
-				throw exDosisMaxAlcanzadaTumor(); //lanzo una excepcion
+				flagalguntumor = true;
 			}
 			if (nuevadosisP> cBRAQUITERAPIA::dosisMaxPaciente) {
 				pasar_lista_espera(paciente); //si el paciente ya alcanzo su dosis de radiacion maxima lo paso a lista de espera
@@ -65,9 +65,8 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 			nuevadosisT = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion() + paciente->get_ficha()->get_tumores()[i]->get_dosisAcumTumor();
 			nuevadosisP = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion() * 0.3 + paciente->get_ficha()->get_dosisAcumTotal();
 			if (nuevadosisT > cHAZEXTERNO::dosisMaxTumor) {
-				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); 
 				flagtumor = true;
-				throw exDosisMaxAlcanzadaTumor();
+				flagalguntumor = true;
 			}
 			if (nuevadosisP > cHAZEXTERNO::dosisMaxPaciente) {
 				pasar_lista_espera(paciente);
@@ -78,21 +77,26 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 			nuevadosisT = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion() + paciente->get_ficha()->get_tumores()[i]->get_dosisAcumTumor();
 			nuevadosisP = paciente->get_ficha()->get_tumores()[i]->get_tratamiento()->get_dosisPorSesion() * 0.1 + paciente->get_ficha()->get_dosisAcumTotal();
 			if (nuevadosisT > cHAZEXTERNO::dosisMaxTumor) {
-				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); 
 				flagtumor = true;
-				throw exDosisMaxAlcanzadaTumor();
+				flagalguntumor = true;
 			}
 			if (nuevadosisP > cHAZEXTERNO::dosisMaxPaciente) {
 				pasar_lista_espera(paciente);
 				return;
 			}
 		}
-
 		if (!flagtumor) { //si no alcanzo la max total ni la max del tumor
 			paciente->get_ficha()->get_tumores()[i]->set_dosisAcumTumor(nuevadosisT);
 			paciente->get_ficha()->set_dosisAcumTotal(nuevadosisP);
-		}	
+		}
+		else {
+			paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); //elimino el tumor de la lista para que no siga siendo tratado
+			i--;
+			tamanio--;
+		}
 	}
+		if(flagalguntumor)
+			throw exDosisMaxAlcanzadaTumor(); //lanzo una excepcion si se curo de algun cancer
 
 	paciente->get_ficha()->acomodar_fechas();
 	return;
@@ -119,7 +123,7 @@ void cONCOLOGO::generar_ficha_nueva(cPACIENTE* paciente, cDOSIMETRISTA* dosimetr
 
 void cONCOLOGO::generar_diagnostico(cPACIENTE* paciente) {
 	srand(time(NULL));
-	int cantTumores = rand() % 4+1;
+	int cantTumores = rand() % 3+1;
 	vector<eTipoTumor> tipos_tumores;
 	for (int i = 0; i < cantTumores; i++) {
 		

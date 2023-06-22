@@ -96,7 +96,7 @@ string cFICHA::to_string() {
 		ss << "DNI del oncologo a cargo: " << this->oncologo_dni << endl;
 		string fechaUltAux = convertir_fecha(this->fechaUltimaSesion);
 		string fechaProxAux = convertir_fecha(this->fechaProxSesion);
-		ss << "La dosis maxima del pacinete es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. "<<endl<<"La ultima sesion fue el dia " << fechaUltAux << ". La proxima sesion sera el dia " << fechaProxAux << "." <<endl<<"Diagnostico: "<< ssaux.str() << endl;
+		ss << "La dosis maxima del paciente es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. "<<endl<<"La ultima sesion fue el dia " << fechaUltAux << ". La proxima sesion sera el dia " << fechaProxAux << "." <<endl<<"Diagnostico: "<< ssaux.str() << endl;
 	}
 	return ss.str();
 }
