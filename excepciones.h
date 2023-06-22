@@ -61,7 +61,7 @@ public:
 class exDosisMaxAlcanzadaPaciente :public exception {
 public:
 	const char* what()const throw() {
-		return "La dosis maxima de este paciente fue alcanzada";
+		return "Este paciente se ha pasado a lista de espera";
 	}
 };
 

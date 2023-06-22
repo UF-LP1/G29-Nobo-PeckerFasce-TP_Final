@@ -90,9 +90,15 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 			paciente->get_ficha()->set_dosisAcumTotal(nuevadosisP);
 		}
 		else {
-			paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); //elimino el tumor de la lista para que no siga siendo tratado
-			i--;
-			tamanio--;
+			if (paciente->get_ficha()->get_tumores().size() == 1) {
+				pasar_lista_espera(paciente);
+			}
+			else {
+				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); //elimino el tumor de la lista para que no siga siendo tratado
+				i--;
+				tamanio--;
+
+			}
 		}
 	}
 		if(flagalguntumor)

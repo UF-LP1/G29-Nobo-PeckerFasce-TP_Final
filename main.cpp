@@ -70,7 +70,9 @@ int main() {
 	cout <<*(paciente1->get_ficha());
 	cout << *(paciente2->get_ficha());
 	cout << *(paciente3->get_ficha());
-	//ponele que todos mis pacientes ya se curaron/llegaron a la dosis max del paciente o de todos los tumores entonces pasaron a lista de espera
+	
+	oncologo2->sacar_lista_espera(paciente1, dosimetrista);
+
 	try {
 		list<cPACIENTE*> pacientesConMenosDel5 = hospital->buscar_por_menos_del_5porciento();
 	}
@@ -78,7 +80,7 @@ int main() {
 		cout << error.what()<<endl;
 	}
 	try {
-		list<cPACIENTE*> pacientesConTratamientoTumor = hospital->buscar_por_tratamiento_y_tumor(eRadioterapia(braquiterapia), eTipoTumor(cabeza));
+		list<cPACIENTE*> pacientesConTratamientoTumor = hospital->buscar_por_tratamiento_y_tumor(eRadioterapia(hazExterno), eTipoTumor(ojo));
 	}
 	catch (exNoHayPacientesMatch& error) {
 		cout << error.what() << endl;
