@@ -36,6 +36,7 @@ public:
     string get_telefono();
     string get_nombre();
     string get_dni();
+    string TipoSangre(eTipoSangre sangre);
     friend ostream& operator<<(ostream& out, cPACIENTE& paciente);
     bool operator==(string oncologo_dni);
 

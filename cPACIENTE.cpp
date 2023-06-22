@@ -98,3 +98,43 @@ string cPACIENTE::to_string() {
 	 return (this->ficha->get_oncologo_dni()== oncologo_dni);
 
  }
+
+ string cPACIENTE::TipoSangre(eTipoSangre sangre) {
+	 string ts;
+	 switch (sangre) {
+	 case Op: {
+		 ts = "0+";
+		 break;
+	 }
+	 case On: {
+		 ts = "0-";			
+		 break;
+	  }
+	 case Ap: {
+		 ts = "A+";
+		 break;
+	 }
+	 case An: {
+		 ts = "A-";
+		 break;
+	 }
+	 case Bn: {
+		 ts = "B-";
+		 break;
+	 }
+	 case Bp: {
+		 ts = "B+";
+		 break;
+	 }
+	 case ABp: {
+		 ts = "AB+";
+		 break;
+	 }
+	 case ABn: {
+		 ts = "AB-";
+		 break;
+	 }
+	 
+	 }
+	 return ts;
+ }
