@@ -1,6 +1,6 @@
 #include "cSISTEMICA.h"
-unsigned int cSISTEMICA::dosisMaxPaciente = 100;
-unsigned int cSISTEMICA::dosisMaxTumor = 60;
+float cSISTEMICA::dosisMaxPaciente = 100;
+float cSISTEMICA::dosisMaxTumor = 60;
 
 cSISTEMICA::cSISTEMICA(eTamanioTumor tamanio) :cRADIOTERAPIA(sistemica, tamanio) {
 	
@@ -10,9 +10,9 @@ cSISTEMICA::~cSISTEMICA() {
 
 }
 
-unsigned int cSISTEMICA::ajustar_dosis(eTamanioTumor tamanio) {
+float cSISTEMICA::ajustar_dosis(eTamanioTumor tamanio) {
 	srand(time(NULL));
-	unsigned int dosis = rand() % 8; //da un nro del 0 al 7
+	float dosis = rand() % 8; //da un nro del 0 al 7
 	switch (tamanio) {
 	case pequenio: {
 		dosis = dosis + 20;

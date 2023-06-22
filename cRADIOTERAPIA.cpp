@@ -9,7 +9,7 @@ cRADIOTERAPIA::~cRADIOTERAPIA() {
 
 }
 
-void cRADIOTERAPIA::set_dosisPorSesion(unsigned int dosisPorSesion) {
+void cRADIOTERAPIA::set_dosisPorSesion(float dosisPorSesion) {
 	this->dosisPorSesion = dosisPorSesion;
 	return;
 }
@@ -19,7 +19,7 @@ void cRADIOTERAPIA::set_frecuenciaSemanalPorTumor(unsigned int frecuenciaSemanal
 	return;
 }
 
-unsigned int cRADIOTERAPIA:: get_dosisPorSesion() {
+float cRADIOTERAPIA:: get_dosisPorSesion() {
 	return this->dosisPorSesion;
 }
 
