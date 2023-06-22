@@ -14,7 +14,6 @@ cFICHA::~cFICHA() {
 	}
 }
 
-
 void cFICHA::set_dosisAcumTotal(unsigned int dosisAcumTotal) {
 	//CUANDO CALCULE LA DOSIS ACUM TOTAL 
 	//Radiacion_paciente = Tumores_RTPHazExterno * 0.3 + Tumores_Braquiterapia * 0.6 +Tumores_Sistemico * 0.1
@@ -95,10 +94,8 @@ string cFICHA::to_string() {
 			ssaux <<'\t' << "Tumor " << i + 1 << ": " << aux << endl;
 		}
 		ss << "DNI del oncologo a cargo: " << this->oncologo_dni << endl;
-		char* fechaUltAux[10];
-		ctime_s(*fechaUltAux, 10,&(this->fechaUltimaSesion));
-		char* fechaProxAux[10]; 
-		ctime_s(*fechaUltAux,10,&(this->fechaProxSesion));
+		string fechaUltAux = convertir_fecha(this->fechaUltimaSesion);
+		string fechaProxAux = convertir_fecha(this->fechaProxSesion);
 		ss << "La dosis maxima del pacinete es de " << this->dosisMax << ", de la cual se trato un " << porcentaje << "%. "<<endl<<"La ultima sesion fue el dia " << fechaUltAux << ". La proxima sesion sera el dia " << fechaProxAux << "." <<endl<<"Diagnostico: "<< ssaux.str() << endl;
 	}
 	return ss.str();
@@ -133,4 +130,16 @@ void cFICHA::acomodar_fechas()
 ostream& operator<<(ostream& out, cFICHA& ficha) {
 	out << ficha.to_string();
 	return out;
+}
+
+string cFICHA::convertir_fecha(time_t fecha)
+{
+	tm tiempo;
+	localtime_s(&tiempo, &fecha);
+	int dia_ = tiempo.tm_mday;
+	int mes_ = tiempo.tm_mon + 1;
+	int anio_ = tiempo.tm_year + 1900;
+	stringstream strfecha;
+	strfecha << dia_ << "/" << mes_ << "/" << anio_;
+	return strfecha.str();
 }

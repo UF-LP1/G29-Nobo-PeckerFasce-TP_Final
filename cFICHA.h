@@ -39,6 +39,7 @@ public:
 	string get_oncologo_dni();
 	friend ostream& operator<<(ostream& out, cFICHA& ficha);
 	void acomodar_fechas();
+	string convertir_fecha(time_t tiempo);
 
 private:
 
