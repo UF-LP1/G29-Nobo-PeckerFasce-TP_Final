@@ -1,6 +1,6 @@
 #include "cPACIENTE.h"
 
-cPACIENTE::cPACIENTE(string nombre, string dni, eTipoSangre tipoSangre, char sexo) : sexo(sexo), tipoSangre(tipoSangre) {
+cPACIENTE::cPACIENTE(string nombre, string dni, eTipoSangre tipoSangre, char sexo) : nombre(nombre), dni(dni), sexo(sexo), tipoSangre(tipoSangre) {
 	cFICHA* aux=new cFICHA("");
 	this->enEspera = false;
 	this->ficha = aux;
