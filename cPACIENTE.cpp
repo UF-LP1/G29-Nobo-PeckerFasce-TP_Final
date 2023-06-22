@@ -84,8 +84,8 @@ string cPACIENTE::to_string() {
 		auxenespera = "espera";
 	}
 	else auxenespera = "tratamiento";
-
-	ss << "El paciente " << this->nombre <<"("<<auxsexo<<"), tipo de sangre: "<<this->tipoSangre << ", con DNI : " << this->dni << " y telefono : " << this->telefono << ", actualmente se encuentra en " << auxenespera << ". Su estado de salud actual (0-1) es: " << this->salud;
+	string auxSangre = TipoSangre(this->tipoSangre);
+	ss << "El paciente " << this->nombre <<"("<<auxsexo<<"), tipo de sangre: "<<auxSangre << ", con DNI : " << this->dni << " y telefono : " << this->telefono << ", actualmente se encuentra en " << auxenespera << ". Su estado de salud actual (0-1) es: " << this->salud;
 	return ss.str();
 }
 

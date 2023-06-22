@@ -12,14 +12,14 @@ int main() {
 	paciente1->set_telefono("2235448098");
 
 	cPACIENTE* paciente2 = new cPACIENTE("Moria Casan", "44568099", eTipoSangre(4), 'f');
-	paciente1->set_enEspera(false);
-	paciente1->set_salud(0.1);
-	paciente1->set_telefono("2267948098");
+	paciente2->set_enEspera(false);
+	paciente2->set_salud(0.1);
+	paciente2->set_telefono("2267948098");
 
 	cPACIENTE* paciente3 = new cPACIENTE("Ricky Fort", "45000099", eTipoSangre(2), 'm');
-	paciente1->set_enEspera(false);
-	paciente1->set_salud(0.9);
-	paciente1->set_telefono("2235448778");
+	paciente3->set_enEspera(false);
+	paciente3->set_salud(0.9);
+	paciente3->set_telefono("2235448778");
 	//los agrego a la lista de pacientes
 	*hospital + paciente1;
 	*hospital + paciente2;
