@@ -1,6 +1,6 @@
 #include "cBRAQUITERAPIA.h"
-unsigned int cBRAQUITERAPIA::dosisMaxPaciente = 180;
-unsigned int cBRAQUITERAPIA::dosisMaxTumor = 150;
+float cBRAQUITERAPIA::dosisMaxPaciente = 180;
+float cBRAQUITERAPIA::dosisMaxTumor = 150;
 
 cBRAQUITERAPIA::cBRAQUITERAPIA(eTamanioTumor tamanio):cRADIOTERAPIA(braquiterapia, tamanio) {
 	
@@ -11,9 +11,9 @@ cBRAQUITERAPIA::~cBRAQUITERAPIA() {
 
 }
 
-unsigned int cBRAQUITERAPIA::ajustar_dosis(eTamanioTumor tamanio) {
+float cBRAQUITERAPIA::ajustar_dosis(eTamanioTumor tamanio) {
 	srand(time(NULL));
-	unsigned int dosis = rand() % 21; //da un nro del 0 al 20
+	float dosis = rand() % 21; //da un nro del 0 al 20
 	switch (tamanio) {
 	case pequenio: {
 		dosis = dosis + 100;

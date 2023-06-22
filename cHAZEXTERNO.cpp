@@ -1,6 +1,6 @@
 #include "cHAZEXTERNO.h"
-unsigned int cHAZEXTERNO::dosisMaxPaciente = 100;
-unsigned int cHAZEXTERNO::dosisMaxTumor = 60;
+float cHAZEXTERNO::dosisMaxPaciente = 100;
+float cHAZEXTERNO::dosisMaxTumor = 60;
 
 cHAZEXTERNO::cHAZEXTERNO(eTamanioTumor tamanio):cRADIOTERAPIA(hazExterno, tamanio) {
 	
@@ -10,9 +10,9 @@ cHAZEXTERNO::~cHAZEXTERNO() {
 
 }
 
-unsigned int cHAZEXTERNO::ajustar_dosis(eTamanioTumor tamanio) {
+float cHAZEXTERNO::ajustar_dosis(eTamanioTumor tamanio) {
 	srand(time(NULL));
-	unsigned int dosis = rand() % 4; //da un nro entre 0 y 3
+	float dosis = rand() % 4; //da un nro entre 0 y 3
 	switch (tamanio)
 	{
 	case pequenio:

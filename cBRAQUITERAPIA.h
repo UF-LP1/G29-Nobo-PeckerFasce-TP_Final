@@ -8,12 +8,12 @@ class cBRAQUITERAPIA :
     public cRADIOTERAPIA
 {
 public:
-    static unsigned int dosisMaxPaciente;
-    static unsigned int dosisMaxTumor;
+    static float dosisMaxPaciente;
+    static float dosisMaxTumor;
 
     cBRAQUITERAPIA(eTamanioTumor tamanio);
     ~cBRAQUITERAPIA();
-    unsigned int ajustar_dosis(eTamanioTumor tamanio);
+   float ajustar_dosis(eTamanioTumor tamanio);
     string to_string();
 };
 
