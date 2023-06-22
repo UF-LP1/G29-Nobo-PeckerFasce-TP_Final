@@ -39,9 +39,9 @@ int main() {
 	oncologo2->generar_ficha_nueva(paciente2, dosimetrista);
 	oncologo2->generar_ficha_nueva(paciente3, dosimetrista);
 	//te muestro que bendicion les di 
-	cout << paciente1;
-	cout << paciente2;
-	cout<<paciente3;
+	cout << *paciente1;
+	cout << *paciente2;
+	cout<<*paciente3;
 	//los atiendo asi les curo el cancer que les di <3
 	oncologo1->atender_paciente(paciente1);
 	oncologo2->atender_paciente(paciente2);

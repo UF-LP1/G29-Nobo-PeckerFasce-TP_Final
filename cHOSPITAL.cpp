@@ -100,8 +100,10 @@ void cHOSPITAL::operator+(cPACIENTE* paciente)
 		cout <<endl << error.what() << endl;
 		return;
 	}
+	catch (exPacienteNoEncontrado& todook) {
 
 	this->pacientes.push_back(paciente);
+	}
 	return;
 
 }
@@ -115,8 +117,11 @@ void cHOSPITAL::operator-(cPACIENTE* paciente)
 		cout << endl << error.what() << endl;
 		return;
 	}
-
+	catch (exPacienteYaExistente& todook) {
 	this->pacientes.remove(paciente);
+
+	}
+
 	return;
 }
 
@@ -130,8 +135,11 @@ void cHOSPITAL::buscar(cPACIENTE* paciente)
 			flag = true;
 	}
 
-	if (flag)
+	if (flag) {
+
 		throw exPacienteYaExistente();
+		return;
+	}
 	else
 		throw exPacienteNoEncontrado();
 
@@ -147,8 +155,10 @@ void cHOSPITAL::operator+(cONCOLOGO* oncologo)
 		cout << endl << error.what() << endl;
 		return;
 	}
-
+	catch (exOncologoNoEncontrado& todook) {
 	this->oncologos.push_back(oncologo);
+
+	}
 	return;
 }
 void cHOSPITAL::operator-(cONCOLOGO* oncologo)
@@ -160,8 +170,11 @@ void cHOSPITAL::operator-(cONCOLOGO* oncologo)
 		cout << endl << error.what() << endl;
 		return;
 	}
-
+	catch (exOncologoYaExistente& todook) {
 	this->oncologos.remove(oncologo);
+
+	}
+
 	return;
 }
 
@@ -192,8 +205,11 @@ void cHOSPITAL::operator+(cDOSIMETRISTA* dosimetrista)
 		cout << endl << error.what() << endl;
 		return;
 	}
-
+	catch (exDosimetristaNoEncontrado& todook) {
 	this->dosimetristas.push_back(dosimetrista);
+
+	}
+
 	return;
 }
 void cHOSPITAL::operator-(cDOSIMETRISTA* dosimetrista)
@@ -205,8 +221,10 @@ void cHOSPITAL::operator-(cDOSIMETRISTA* dosimetrista)
 		cout << endl << error.what() << endl;
 		return;
 	}
-
+	catch (exDosimetristaYaExistente& todook) {
 	this->dosimetristas.remove(dosimetrista);
+
+	}
 	return;
 }
 
@@ -223,7 +241,7 @@ void cHOSPITAL::buscar(cDOSIMETRISTA* dosimetrista)
 	if (flag)
 		throw exDosimetristaYaExistente();
 	else
-		throw exOncologoNoEncontrado();
+		throw exDosimetristaNoEncontrado();
 
 	return;
 }

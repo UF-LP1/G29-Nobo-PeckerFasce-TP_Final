@@ -122,9 +122,14 @@ void cONCOLOGO::generar_diagnostico(cPACIENTE* paciente) {
 	int cantTumores = rand() % 4+1;
 	vector<eTipoTumor> tipos_tumores;
 	for (int i = 0; i < cantTumores; i++) {
-		do {
-			tipos_tumores.push_back(eTipoTumor(rand() % 10));
-		} while ((paciente->get_sexo() == 'f' && tipos_tumores[i] == prostata) || (paciente->get_sexo() == 'm' && (tipos_tumores[i] == mama || tipos_tumores[i] == utero)));
+		
+			tipos_tumores.push_back(eTipoTumor(rand() % 9));
+			if ((paciente->get_sexo() == 'f' && tipos_tumores[i] == prostata) || (paciente->get_sexo() == 'm' && (tipos_tumores[i] == mama || tipos_tumores[i] == utero)))
+			{
+				tipos_tumores.erase(tipos_tumores.begin() + i);
+				i--;
+			}
+		
 	}
 
 	vector<cTUMOR*> tumores;
@@ -167,9 +172,7 @@ unsigned int cONCOLOGO::calcular_dosisMax(cPACIENTE* paciente)
 }
 
 void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
-	if (paciente->get_ficha()->get_tumores().empty()) {
-		throw exNoHayTumores();
-	}
+	
 	for (int i = 0; i < paciente->get_ficha()->get_tumores().size(); i++) {
 		
 		cRADIOTERAPIA* tratamiento=new cSISTEMICA(mediano);
@@ -178,12 +181,12 @@ void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
 		int hazExt = rand() % 2;
 		//como el haz externo trata todos los tumores primero veo si lo trato con esto y sino le pongo el tratamiento especifico para el tipo de tumor del paciente 
 		if (hazExt == 1 || aux == pulmon || aux == intestino) {
-			delete[]tratamiento;
+			delete tratamiento;
 			tratamiento = new cHAZEXTERNO(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
 			
 		}
 		else {
-			delete[]tratamiento;
+			delete tratamiento;
 			switch (aux) {
 			case cabeza: {
 				tratamiento = new cBRAQUITERAPIA(paciente->get_ficha()->get_tumores()[i]->get_tamanio());
