@@ -20,21 +20,57 @@ int main() {
 	paciente1->set_enEspera(false);
 	paciente1->set_salud(0.9);
 	paciente1->set_telefono("2235448778");
-
+	//los agrego a la lista de pacientes
+	*hospital + paciente1;
+	*hospital + paciente2;
+	*hospital + paciente3;
 	//instancio dosimetristas - oncologos
 	cDOSIMETRISTA* dosimetrista = new cDOSIMETRISTA("Doctor Milagro", "67098112");
 
 	cONCOLOGO* oncologo1 = new cONCOLOGO("RuPaul", "10101010");
+	cONCOLOGO* oncologo2 = new cONCOLOGO("Jesus Cristo", "0000000001");
+	//los agrego a las listas de oncologo y dosimetrista
+	*hospital + dosimetrista;
+	*hospital + oncologo1;
+	*hospital + oncologo2;
 
+	//les creo una ficha asi tienen un cancer porque sino que te curo
+	oncologo1->generar_ficha_nueva(paciente1, dosimetrista);
+	oncologo2->generar_ficha_nueva(paciente2, dosimetrista);
+	oncologo2->generar_ficha_nueva(paciente3, dosimetrista);
+	//te muestro que bendicion les di 
+	cout << paciente1;
+	cout << paciente2;
+	cout<<paciente3;
+	//los atiendo asi les curo el cancer que les di <3
+	oncologo1->atender_paciente(paciente1);
+	oncologo2->atender_paciente(paciente2);
+	oncologo2->atender_paciente(paciente3);
+	//a ver como vienen
+	cout << paciente1;
+	cout << paciente2;
+	cout << paciente3;
+	//ponele que todos mis pacientes ya se curaron/llegaron a la dosis max del paciente o de todos los tumores entonces pasaron a lista de espera
+	try {
+		list<cPACIENTE*> pacientesConMenosDel5 = hospital->buscar_por_menos_del_5porciento();
+	}
+	catch (exNoHayPacientesMatch& error) {
+		cout << error.what()<<endl;
+	}
+	try {
+		list<cPACIENTE*> pacientesConTratamientoTumor = hospital->buscar_por_tratamiento_y_tumor(eRadioterapia(braquiterapia), eTipoTumor(cabeza));
+	}
+	catch (exNoHayPacientesMatch& error) {
+		cout << error.what() << endl;
+	}
 
-	//me creo un dosimetrista y un oncologo (o 2)
-	//llamo a generar ficha nueva
-	//llamo a atender paciente
-	//algun q otro sacar y poner en lista de espera EN UN TRY CATCH
-	//en poner en lista de espera le tendiramos q decir q la prox sesion es en 6 meses ponele
-	//buscar por tal y tal
-	//sacar y sumar con sobrecargas
-	//probar sobrecarga del ==
+	if (*paciente1 == oncologo2->get_dni()) {
+		cout << "El paciente " << paciente1->get_nombre() << " es atendido por el oncologo " << oncologo2->get_nombre() << endl;
+	}
+	else {
+		cout << "El paciente " << paciente1->get_nombre() << " no es atendido por el oncologo " << oncologo2->get_nombre() << endl;
+	}
+	
 
 
 	delete hospital;
@@ -42,5 +78,7 @@ int main() {
 	delete paciente2;
 	delete paciente3;
 	delete dosimetrista;
+	delete oncologo1;
+	delete oncologo2;
 	return 0;
 }

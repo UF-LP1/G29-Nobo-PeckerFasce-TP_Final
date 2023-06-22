@@ -42,6 +42,9 @@ list <cPACIENTE*> cHOSPITAL::buscar_por_tratamiento_y_tumor(eRadioterapia tratam
 				aux.push_back((*it));
 		}
 	}
+	if (aux.empty()) {
+		throw exNoHayPacientesMatch();
+	}
 	return aux;
 }
 
@@ -63,6 +66,9 @@ list <cPACIENTE*> cHOSPITAL::buscar_por_menos_del_5porciento() {
 				aux.push_back((*it));
 		
 		}
+	}
+	if (aux.empty()) {
+		throw exNoHayPacientesMatch();
 	}
 	return aux;
 }
