@@ -4,6 +4,7 @@ cPACIENTE::cPACIENTE(string nombre, string dni, eTipoSangre tipoSangre, char sex
 	cFICHA* aux=new cFICHA("");
 	this->enEspera = false;
 	this->ficha = aux;
+	this->salud = 0;
 }
 
 cPACIENTE::~cPACIENTE() {
@@ -34,12 +35,12 @@ cFICHA* cPACIENTE::get_ficha() {
 	return this->ficha;
  }
 
-float cPACIENTE::get_salud()
+float cPACIENTE::get_salud() const
 {
 	return this->salud;
 }
 
-char cPACIENTE::get_sexo()
+char cPACIENTE::get_sexo() const
 {
 	return this->sexo;
 }
@@ -54,19 +55,14 @@ void cPACIENTE::set_telefono(string telefono)
 	this->telefono = telefono;
 }
 
-string cPACIENTE::get_telefono()
+string cPACIENTE::get_telefono() const
 {
 	return this->telefono;
 }
 
-string cPACIENTE::get_nombre()
+string cPACIENTE::get_nombre() const
 {
 	return this->nombre;
-}
-
-string cPACIENTE::get_dni()
-{
-	return this->dni;
 }
 
 string cPACIENTE::to_string() {
@@ -97,6 +93,11 @@ string cPACIENTE::to_string() {
  bool cPACIENTE:: operator==(string oncologo_dni) {
 	 return (this->ficha->get_oncologo_dni()== oncologo_dni);
 
+ }
+
+ string cPACIENTE::get_dni() const
+ {
+	 return this->dni;
  }
 
  string cPACIENTE::TipoSangre(eTipoSangre sangre) {

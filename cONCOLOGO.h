@@ -16,9 +16,9 @@ public:
     ~cONCOLOGO();
 
     void set_telefono(string telefono);
-    string get_telefono();
-    string get_nombre();
-    string get_dni();
+    string get_telefono() const;
+    string get_nombre() const;
+    string get_dni() const;
     void pasar_lista_espera(cPACIENTE* paciente);
     void sacar_lista_espera(cPACIENTE* paciente, cDOSIMETRISTA* dosimetrista);
     void atender_paciente(cPACIENTE* paciente);
