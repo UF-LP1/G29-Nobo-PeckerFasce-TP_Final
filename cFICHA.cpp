@@ -128,7 +128,7 @@ void cFICHA::acomodar_fechas()
 }
 
 ostream& operator<<(ostream& out, cFICHA& ficha) {
-	out << ficha.to_string();
+	out << ficha.to_string()<<endl;
 	return out;
 }
 
