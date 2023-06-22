@@ -14,17 +14,17 @@ void cDOSIMETRISTA::set_telefono(string telefono)
 	this->telefono = telefono;
 }
 
-string cDOSIMETRISTA::get_telefono()
+string cDOSIMETRISTA::get_telefono() const
 {
 	return this->telefono;
 }
 
-string cDOSIMETRISTA::get_nombre()
+string cDOSIMETRISTA::get_nombre() const
 {
 	return this->nombre;
 }
 
-string cDOSIMETRISTA::get_dni()
+string cDOSIMETRISTA::get_dni() const
 {
 	return this->dni;
 }

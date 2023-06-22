@@ -27,18 +27,19 @@ public:
     void set_salud(float salud);
     void set_ficha(cFICHA* ficha);
     eTipoSangre get_tipoSangre();
-    float get_salud();
-    char get_sexo();
+    float get_salud() const;
+    char get_sexo() const;
     bool get_enEspera();
     cFICHA* get_ficha();
     string to_string();
     void set_telefono(string telefono);
-    string get_telefono();
-    string get_nombre();
-    string get_dni();
+    string get_telefono() const;
+    string get_nombre() const;
+    string get_dni() const;
     string TipoSangre(eTipoSangre sangre);
     friend ostream& operator<<(ostream& out, cPACIENTE& paciente);
     bool operator==(string oncologo_dni);
+    
 };
 
 #endif

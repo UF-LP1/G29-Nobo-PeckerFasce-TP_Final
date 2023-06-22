@@ -16,9 +16,9 @@ public:
     ~cDOSIMETRISTA();
 
     void set_telefono(string telefono);
-    string get_telefono();
-    string get_nombre();
-    string get_dni();
+    string get_telefono() const;
+    string get_nombre() const;
+    string get_dni() const;
     void generar_dosis(cPACIENTE *paciente);
     string to_string();
     friend ostream& operator<<(ostream& out, cDOSIMETRISTA& dosimetrista);
