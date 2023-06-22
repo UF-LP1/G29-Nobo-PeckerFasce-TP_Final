@@ -47,9 +47,9 @@ int main() {
 	oncologo2->atender_paciente(paciente2);
 	oncologo2->atender_paciente(paciente3);
 	//a ver como vienen
-	cout << paciente1;
-	cout << paciente2;
-	cout << paciente3;
+	cout <<*(paciente1->get_ficha());
+	cout << *(paciente2->get_ficha());
+	cout << *(paciente3->get_ficha());
 	//ponele que todos mis pacientes ya se curaron/llegaron a la dosis max del paciente o de todos los tumores entonces pasaron a lista de espera
 	try {
 		list<cPACIENTE*> pacientesConMenosDel5 = hospital->buscar_por_menos_del_5porciento();

@@ -90,7 +90,7 @@ string cPACIENTE::to_string() {
 }
 
  ostream& operator<<(ostream& out, cPACIENTE& paciente) {
-	 out << paciente.to_string();
+	 out << paciente.to_string()<<endl;
 	 return out;
 }
 

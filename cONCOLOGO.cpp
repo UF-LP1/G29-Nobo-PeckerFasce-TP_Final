@@ -178,7 +178,7 @@ void cONCOLOGO::generar_tratamiento(cPACIENTE* paciente) {
 		cRADIOTERAPIA* tratamiento=new cSISTEMICA(mediano);
 		eTipoTumor aux = paciente->get_ficha()->get_tumores()[i]->tipo;
 		srand(time(NULL));
-		int hazExt = rand() % 2;
+		int hazExt = rand() % 8;//para que no tenga una probabilidad tan alta de ser hazexterno, pongo un nro grande
 		//como el haz externo trata todos los tumores primero veo si lo trato con esto y sino le pongo el tratamiento especifico para el tipo de tumor del paciente 
 		if (hazExt == 1 || aux == pulmon || aux == intestino) {
 			delete tratamiento;
