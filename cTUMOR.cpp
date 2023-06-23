@@ -20,7 +20,7 @@ void cTUMOR::set_tamanio(eTamanioTumor tamanio)
 	return;
 }
 
-void cTUMOR::set_dosisAcumTumor(unsigned int dosisAcumTumor) {
+void cTUMOR::set_dosisAcumTumor(float dosisAcumTumor) {
 	this->dosisAcumTumor = dosisAcumTumor;
 	return;
 }
@@ -37,7 +37,7 @@ eTamanioTumor cTUMOR::get_tamanio() {
 	return this->tamanio;
 }
 
-unsigned int cTUMOR::get_dosisAcumTumor() {
+float cTUMOR::get_dosisAcumTumor() {
 	return this->dosisAcumTumor;
 }
 

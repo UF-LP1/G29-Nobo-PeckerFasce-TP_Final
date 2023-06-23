@@ -16,11 +16,11 @@ public:
 	string to_string_terapia();
 	string to_string_tipo();
 	void set_tamanio(eTamanioTumor tamanio);
-	void set_dosisAcumTumor(unsigned int dosisAcumTumor);
+	void set_dosisAcumTumor(float dosisAcumTumor);
 	void set_tratamiento(cRADIOTERAPIA*tratamiento);
 	cRADIOTERAPIA* get_tratamiento();
 	eTamanioTumor get_tamanio();
-	unsigned int get_dosisAcumTumor();
+	float get_dosisAcumTumor();
 	const eTipoTumor tipo;
 
 private:
