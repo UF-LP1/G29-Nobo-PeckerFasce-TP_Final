@@ -12,18 +12,20 @@ cSISTEMICA::~cSISTEMICA() {
 
 float cSISTEMICA::ajustar_dosis(eTamanioTumor tamanio) {
 	srand(time(NULL));
-	float dosis = rand() % 8; //da un nro del 0 al 7
+	float dosis = (rand() %10)/10; 
 	switch (tamanio) {
 	case pequenio: {
-		dosis = dosis + 20;
+		dosis = dosis + 2;
 		break;
 	}
 	case mediano: {
-		dosis = dosis + 26;
+		dosis = dosis + 2.5;
+		
 		break;
 	}
 	case grande: {
-		dosis = dosis + 33;
+		dosis = dosis + 3;
+		
 		break;
 	}
 	}

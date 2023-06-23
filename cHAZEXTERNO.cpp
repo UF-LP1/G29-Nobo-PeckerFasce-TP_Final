@@ -12,22 +12,24 @@ cHAZEXTERNO::~cHAZEXTERNO() {
 
 float cHAZEXTERNO::ajustar_dosis(eTamanioTumor tamanio) {
 	srand(time(NULL));
-	float dosis = rand() % 4; //da un nro entre 0 y 3
+	float dosis = (rand() % 10)/10; 
 	switch (tamanio)
 	{
 	case pequenio:
 	{
-		dosis = dosis + 1;
+		dosis = dosis + 2;
 		break;
 	}
 	case mediano:
 	{
-		dosis = dosis + 4;
+		dosis = dosis + 2.5;
+	
 		break;
 	}
 	case grande:
 	{
-		dosis = dosis + 7;
+		dosis = dosis + 3;
+		
 		break;
 	}
 

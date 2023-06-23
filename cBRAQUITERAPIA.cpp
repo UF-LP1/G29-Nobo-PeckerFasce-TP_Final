@@ -13,18 +13,18 @@ cBRAQUITERAPIA::~cBRAQUITERAPIA() {
 
 float cBRAQUITERAPIA::ajustar_dosis(eTamanioTumor tamanio) {
 	srand(time(NULL));
-	float dosis = rand() % 21; //da un nro del 0 al 20
+	float dosis = (rand() % 10)/20; 
 	switch (tamanio) {
 	case pequenio: {
-		dosis = dosis + 100;
+		dosis = dosis + 1;
 		break;
 	}
 	case mediano: {
-		dosis = dosis + 120;
+		dosis = dosis + 1.2;
 		break;
 	}
 	case grande: {
-		dosis = dosis + 140;
+		dosis = dosis + 1.55;
 		break;
 	}
 	}
