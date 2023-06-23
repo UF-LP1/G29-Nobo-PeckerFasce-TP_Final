@@ -90,14 +90,8 @@ void cONCOLOGO::atender_paciente(cPACIENTE* paciente) {
 			paciente->get_ficha()->set_dosisAcumTotal(nuevadosisP);
 		}
 		else {
-			if (paciente->get_ficha()->get_tumores().size() == 1) {
+			if (paciente->get_ficha()->get_tumores().size() == 1) { //si alcanzo la dosis maxima de su unico tumor lo paso a lista de espera
 				pasar_lista_espera(paciente);
-			}
-			else {
-				paciente->get_ficha()->get_tumores().erase(paciente->get_ficha()->get_tumores().begin() + i); //elimino el tumor de la lista para que no siga siendo tratado
-				i--;
-				tamanio--;
-
 			}
 		}
 	}

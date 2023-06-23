@@ -3,6 +3,7 @@
 using namespace std;
 
 int main() {
+	//--------------------------------------------------------SIMULACION------------------------------------------------------------------
 	//me creo un hospital
 	cHOSPITAL* hospital = new cHOSPITAL("NoboPecker", "micasa");
 	//instancio pacientes
@@ -18,7 +19,7 @@ int main() {
 	paciente3->set_enEspera(false);
 	paciente3->set_salud(0.9);
 	paciente3->set_telefono("2235448778");
-	//los agrego a la lista de pacientes
+	//los agrego a la lista de pacientes del hospital
 	*hospital + paciente1;
 	*hospital + paciente2;
 	*hospital + paciente3;
@@ -37,9 +38,11 @@ int main() {
 	//te muestro que bendicion les di 
 	cout << *paciente1;
 	cout << *paciente2;
-	cout<<*paciente3;
+	cout << *paciente3;
 	//los atiendo asi les curo el cancer que les di <3
+	//podriamos hacer un tratamiento entero en un loop hasta que se cure pero se hace un loop muy largo por la diferencia de proporcion que hay entre las dosis por seseion y las maximas
 	try {
+		oncologo1->atender_paciente(paciente1);
 		oncologo2->atender_paciente(paciente2);
 		oncologo2->atender_paciente(paciente3);
 	}
@@ -49,35 +52,43 @@ int main() {
 	catch (exDosisMaxAlcanzadaPaciente& epaciente) {
 		cout << epaciente.what() << endl;
 	}
-	//pruebo hacer el tratamiento entero de un unico paciente para que no sea un loop eterno
-	while (!paciente1->get_enEspera()) {
-		try {
-		oncologo1->atender_paciente(paciente1);
-		}
-		catch (exDosisMaxAlcanzadaTumor& etumor) {
-			cout << etumor.what() << endl;
-		}
-		catch (exDosisMaxAlcanzadaPaciente& epaciente) {
-			cout << epaciente.what() << endl;
-		}
-		cout << *(paciente1->get_ficha());
-	}
 	//a ver como vienen
-	cout << *(paciente2->get_ficha());
-	cout << *(paciente3->get_ficha());
-	oncologo2->sacar_lista_espera(paciente1, dosimetrista);
+	cout<<"Ficha del paciente 1"<<endl << *(paciente1->get_ficha());
+	cout<<"Ficha del paciente 2"<<endl << *(paciente2->get_ficha());
+	cout<<"Ficha del paciente 3"<<endl << *(paciente3->get_ficha());
+	//ponemos a un paciente en lista de espera y lo volvemos a reevaluar
 	try {
+		oncologo2->pasar_lista_espera(paciente2);
+	}
+	catch (exDosisMaxAlcanzadaPaciente& epaciente) {
+		cout << epaciente.what() << endl;
+	}
+	try {
+		oncologo2->sacar_lista_espera(paciente2, dosimetrista); 
+		cout << "Ficha del paciente 2" << endl << *(paciente2->get_ficha());
+	}
+	catch (exDosisMaxAlcanzadaTumor& etumor) {
+		cout << etumor.what() << endl;
+	}
+	catch (exDosisMaxAlcanzadaPaciente& epaciente) {
+		cout << epaciente.what() << endl;
+	}
+	//buscamos en la lista del hospital descripciones al azar
+	try {
+		cout << endl << "Lista de pacientes con menos del 5% de dosis necesaria para curar un tumor" << endl;
 		list<cPACIENTE*> pacientesConMenosDel5 = hospital->buscar_por_menos_del_5porciento();
 	}
 	catch (exNoHayPacientesMatch& error) {
 		cout << error.what()<<endl;
 	}
 	try {
+		cout << endl << "Lista de pacientes con tumores de ojo siendo tratados con radioterapia de haz externo" << endl;
 		list<cPACIENTE*> pacientesConTratamientoTumor = hospital->buscar_por_tratamiento_y_tumor(eRadioterapia(hazExterno), eTipoTumor(ojo));
 	}
 	catch (exNoHayPacientesMatch& error) {
 		cout << error.what() << endl;
 	}
+	//probamos si coincide un oncologo con su paciente
 	if (*paciente1 == oncologo2->get_dni()) {
 		cout << "El paciente " << paciente1->get_nombre() << " es atendido por el oncologo " << oncologo2->get_nombre() << endl;
 	}
