@@ -25,7 +25,7 @@ public:
 
 private:
 	eTamanioTumor tamanio;
-	unsigned int dosisAcumTumor;
+	float dosisAcumTumor;
 	cRADIOTERAPIA* tratamiento;
 };
 

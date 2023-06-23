@@ -7,7 +7,7 @@ cTUMOR::cTUMOR(eTipoTumor tipo):tipo(tipo)
 	this->tamanio = eTamanioTumor(0);//por defecto pero despues hago set
 	cRADIOTERAPIA* aux=new cSISTEMICA(this->tamanio); //dummy
 	this->tratamiento = aux;
-	this->dosisAcumTumor = 0;
+	this->dosisAcumTumor = 0.0;
 	
 }
 
